@@ -28,6 +28,7 @@ setup(
         "fanstatic.libraries": [
             "jquery = poker.static.jquery:library",
             "bootstrap = poker.static.bootstrap:library",
+            "poker = poker.static.poker:library",
         ],
     }
 )

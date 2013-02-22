@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+from west import log
+log.load_config()
+
 
 CONFIG_SECTION = "app:west-server"
 CONFIG_KEY = ""
@@ -5,18 +9,14 @@ CONFIG_SEP = ""
 
 
 if __name__ == "__main__":
-    # west import
     from west.config import Config
-    from west.log import get_logger
-    from west.twisted.server import add_site
-
     # init config
-    logger = get_logger(__file__, "west.socket")
     Config()
-
     # prepare config cb
     config_func = Config().get_func(CONFIG_SECTION, CONFIG_KEY, CONFIG_SEP)
+
     # start site
+    from west.socket.twisted.server import add_site
     add_site(config_func)
 
     # run baby! run!
