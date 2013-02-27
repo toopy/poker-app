@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Poker App'</title>
+    <!-- Le styles -->
+    <link href="/fanstatic/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.show-grid {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.show-grid [class*="span-grid"] {
+    background-color: #eee;
+    text-align: center;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    min-height: 40px;
+    line-height: 40px;
+}
+
+.show-grid [class*="span-grid"]:hover {
+    background-color: #ddd;
+}
+
+.center-div {
+    margin: auto;
+}
+
+.next,
+.prev {
+    height: 418px;
+}
+
+.next i,
+.prev i{
+    margin-top: 200px;
+}
+
+.player-cards {
+    margin-top: 14px;
+}
+
+    </style>
+    <link href="/fanstatic/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/index">Poker App'</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/index">Play'</a></li>
+              <li class="active"><a href="/preview">Learn'</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+        <div id="poker-table" class="row show-grid">
+            <span class="span1 span-grid prev">
+                <i class="icon-chevron-left"></i>
+            </span>
+            <div class="span10">
+                <div id="table" class="center-div"></div>
+            </div>
+            <span class="span1 span-grid next">
+                <i class="icon-chevron-right"></i>
+            </span>
+        </div>
+
+        <hr>
+
+        <div class="row show-grid">
+            <div class="span1">
+                <div id="player_1_card_1" class="center-div"></div>
+            </div>
+            <div class="span1">
+                <div id="player_1_card_2" class="center-div"></div>
+            </div>
+            <div class="span2">
+                <div id="player_2_cards" class="center-div player-cards"></div>
+            </div>
+            <div class="span2">
+                <div id="player_3_cards" class="center-div player-cards"></div>
+            </div>
+            <div class="span2">
+                <div id="player_4_cards" class="center-div player-cards"></div>
+            </div>
+            <div class="span2">
+                <div id="player_5_cards" class="center-div player-cards"></div>
+            </div>
+            <div class="span2">
+                <div id="player_6_cards" class="center-div player-cards"></div>
+            </div>
+        </div>
+
+        <div class="row show-grid">
+            <div class="span1">
+                <input type="text" id="player_1_card_1_form" class="span1">
+            </div>
+            <div class="span1">
+                <input type="text" id="player_1_card_2_form" class="span1">
+            </div>
+            <div class="span2">
+                <input type="text" id="player_2_cards_form" class="span2">
+            </div>
+            <div class="span2">
+                <input type="text" id="player_3_cards_form" class="span2">
+            </div>
+            <div class="span2">
+                <input type="text" id="player_4_cards_form" class="span2">
+            </div>
+            <div class="span2">
+                <input type="text" id="player_5_cards_form" class="span2">
+            </div>
+            <div class="span2">
+                <input type="text" id="player_6_cards_form" class="span2">
+            </div>
+        </div>
+
+        <div class="row show-grid">
+            <div class="span2">
+                <div id="player_1_name" class="center-div"></div>
+            </div>
+            <div class="span2">
+                <div id="player_2_name" class="center-div"></div>
+            </div>
+            <div class="span2">
+                <div id="player_3_name" class="center-div"></div>
+            </div>
+            <div class="span2">
+                <div id="player_4_name" class="center-div"></div>
+            </div>
+            <div class="span2">
+                <div id="player_5_name" class="center-div"></div>
+            </div>
+            <div class="span2">
+                <div id="player_6_name" class="center-div"></div>
+            </div>
+        </div>
+
+        <div class="row show-grid">
+            <div class="span2">
+                <input type="text" id="player_1_name_form" class="span2">
+            </div>
+            <div class="span2">
+                <input type="text" id="player_2_name_form" class="span2">
+            </div>
+            <div class="span2">
+                <input type="text" id="player_3_name_form" class="span2">
+            </div>
+            <div class="span2">
+                <input type="text" id="player_4_name_form" class="span2">
+            </div>
+            <div class="span2">
+                <input type="text" id="player_5_name_form" class="span2">
+            </div>
+            <div class="span2">
+                <input type="text" id="player_6_name_form" class="span2">
+            </div>
+        </div>
+
+        <div class="row show-grid">
+            <div class="span2  offset1">
+                <div id="table_card_1" class="center-div"></div>
+            </div>
+            <div class="span2">
+                <div id="table_card_2" class="center-div"></div>
+            </div>
+            <div class="span2">
+                <div id="table_card_3" class="center-div"></div>
+            </div>
+            <div class="span2">
+                <div id="table_card_4" class="center-div"></div>
+            </div>
+            <div class="span2">
+                <div id="table_card_5" class="center-div"></div>
+            </div>
+        </div>
+
+        <div class="row show-grid">
+            <div class="span2  offset1">
+                <input type="text" id="table_card_1_form" class="span2">
+            </div>
+            <div class="span2">
+                <input type="text" id="table_card_2_form" class="span2">
+            </div>
+            <div class="span2">
+                <input type="text" id="table_card_3_form" class="span2">
+            </div>
+            <div class="span2">
+                <input type="text" id="table_card_4_form" class="span2">
+            </div>
+            <div class="span2">
+                <input type="text" id="table_card_5_form" class="span2">
+            </div>
+        </div>
+
+        <hr>
+
+        <footer>
+            <p>&copy; Poke App' 2013</p>
+        </footer>
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/fanstatic/jquery/jquery.js"></script>
+    <script src="/fanstatic/jquery/jquery.websocket.js"></script>
+    <script src="/fanstatic/bootstrap/js/bootstrap.js"></script>
+<script>
+
+(function ($) {
+
+    $.fn.pokerImage = function (o) {
+
+        var _default = {
+            img: undefined,
+            zone: {x: 0, y: 0, w: 0, h: 0}
+            },
+            o = $.extend(_default, o);
+
+        return this.each(function () {
+
+            var self = $(this);
+
+            if (o.img) {
+                self.css("backgroundImage", "url(" + o.img + ")");
+                self.css("backgroundPositionX", o.zone.x + "px");
+                self.css("backgroundPositionY", o.zone.y + "px")
+                self.css("width", o.zone.w + "px")
+                self.css("height", o.zone.h + "px")
+            }
+        });
+    };
+
+    $.fn.pokerTable = function (o) {
+
+        var _default = {},
+            o = $.extend(_default, o);
+
+        return this.each(function () {
+
+            var self = $(this);
+
+            $.post(
+                "http://localhost:8080/socket",
+                {
+                    factory: "preview-table"
+                },
+                function(data) {
+                    var url = data["west.socket:url"],
+                        websocket = new WebSocket(url),
+                        prev = self.find(".prev"),
+                        next = self.find(".next");
+
+                    websocket.onmessage = function(e) {
+
+                        var o = JSON.parse(e.data);
+                            img_list = [
+                                "table",
+                                "player_1_card_1",
+                                "player_1_card_2",
+                                "player_1_name",
+                                "player_2_cards",
+                                "player_2_name",
+                                "player_3_cards",
+                                "player_3_name",
+                                "player_4_cards",
+                                "player_4_name",
+                                "player_5_cards",
+                                "player_5_name",
+                                "player_6_cards",
+                                "player_6_name",
+                                "table_card_1",
+                                "table_card_2",
+                                "table_card_3",
+                                "table_card_4",
+                                "table_card_5"
+                            ];
+
+                        if (o.table_img) {
+
+                            $.each(img_list, function(i, img_name) {
+                                console.log(JSON.stringify(o.zones[img_name]));
+                                $("#" + img_name).pokerImage({
+                                    img: o.table_img,
+                                    zone: o.zones[img_name]
+                                });
+                            });
+                        }
+                        if (o.msg)
+                            console.log(o.msg)
+                    }
+
+                    console.log("connected to: "+ url);
+
+                    prev.click(function () {
+                        websocket.send(JSON.stringify({
+                            action: "prev",
+                            prev: self.find("#table").css("backgroundImage")
+                        }));
+                    });
+
+                    next.click(function () {
+                        websocket.send(JSON.stringify({
+                            action: "next",
+                            next: self.find("#table").css("backgroundImage")
+                        }));
+                    });
+                },
+                "json"
+            );
+        });
+    }
+})(jQuery);
+
+$("#poker-table").pokerTable();
+
+</script>
+</body>
+</html>
+
