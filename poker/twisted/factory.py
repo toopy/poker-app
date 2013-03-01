@@ -9,12 +9,36 @@ from west.socket.twisted.factory import SocketFactory
 
 KEY = "poker.app"
 
+ROOT = os.path.join("poker", "static", "poker", "resources", "img", "table")
+STATIC = os.path.join("/fanstatic", "poker", "img", "table")
+
+IMG_LIST = [
+    "table",
+    "player_1_card_1",
+    "player_1_card_2",
+    "player_1_name",
+    "player_2_cards",
+    "player_2_name",
+    "player_3_cards",
+    "player_3_name",
+    "player_4_cards",
+    "player_4_name",
+    "player_5_cards",
+    "player_5_name",
+    "player_6_cards",
+    "player_6_name",
+    "table_card_1",
+    "table_card_2",
+    "table_card_3",
+    "table_card_4",
+    "table_card_5",
+]
+
 
 class PokerSocketFactory(SocketFactory):
 
     def __init__(self, *args, **kwargs):
         SocketFactory.__init__(self, *args, **kwargs)
-        # TODO implement poker app loop
 
 
 class PreviewTableFactory(SocketFactory):
@@ -22,11 +46,16 @@ class PreviewTableFactory(SocketFactory):
     def __init__(self, *args, **kwargs):
         SocketFactory.__init__(self, *args, **kwargs)
 
-    def get_image(self, current, ask="prev"):
-        # static dir
-        root = os.path.join("poker", "static", "poker", "resources", "img", "table")
+    def current_path(self, current):
+        # split current
+        current = None if not current\
+                    else current.split("/")[-1].replace(")", "")
+        # return root path
+        return os.path.join(ROOT, current)
+
+    def next_path(self, current=None, root=None, ask="next"):
         # list available files
-        files = os.listdir(root)
+        files = os.listdir(ROOT)
         files.reverse()
         # split current
         current = None if not current\
@@ -38,8 +67,7 @@ class PreviewTableFactory(SocketFactory):
         elif ask == "next":
             index = 0 if index == len(files) - 1 else index + 1
         # add static path
-        static = os.path.join("/fanstatic", "poker", "img", "table")
-        files = [os.path.join(static, f) for f in files]
+        files = [os.path.join(root, f) for f in files]
         return files[index]
 
     def split_zone(self, key):
@@ -47,35 +75,44 @@ class PreviewTableFactory(SocketFactory):
         return dict(zip(["x", "y", "w", "h"], value.split()))
 
     def get_zones(self):
-        return dict([(k, self.split_zone(k)) for k in [
-            "table",
-            "player_1_card_1",
-            "player_1_card_2",
-            "player_1_name",
-            "player_2_cards",
-            "player_2_name",
-            "player_3_cards",
-            "player_3_name",
-            "player_4_cards",
-            "player_4_name",
-            "player_5_cards",
-            "player_5_name",
-            "player_6_cards",
-            "player_6_name",
-            "table_card_1",
-            "table_card_2",
-            "table_card_3",
-            "table_card_4",
-            "table_card_5",
-        ]])
+        return dict([(k, self.split_zone(k)) for k in IMG_LIST])
 
-    def message(self, client, msg):
+    def _info(self, zones, k, value, current=None):
+        # ensure current
+        current = self.current_path(current) if current\
+                                             else self.next_path(root=ROOT)
+        
+        # DEBUG
+        logger.debug("_i:%s:%s:%s" % (k, value, current))
+
+    def info_(self, zones, k):
+        return k
+
+    def get_infos(self, zones):
+        return dict([(k, self.info_(zones, k)) for k in IMG_LIST])
+
+    def message(self, client, msg, refresh=False):
+        # DEBUG
+        logger.debug("msg: %s" % msg)
+        # parse msg
         o = json.loads(msg)
         action = o.get("action")
-        if action in ["next", "prev"]:
+        current = o.get("current")
+        zones = self.get_zones()
+        # action factory
+        if action in ["next", "prev"] or refresh:
+            infos = self.get_infos(zones)
             resp = {
-                "table_img": self.get_image(o.get(action), action),
-                "zones": self.get_zones()
+                "table_img": self.next_path(current=current, ask=action,
+                                            root=STATIC),
+                "zones": zones,
+                "infos": infos,
+            }
+        elif action == "form":
+            k = o[action]
+            self._info(zones[k], k, o.get("value", ""), current=current)
+            resp = {
+                "msg": "info `%s` updated!" % k
             }
         else:
             resp = {
