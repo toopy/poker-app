@@ -72,20 +72,43 @@ body {
     <div class="container">
 
         <div id="poker_table" class="row show-grid">
-            <span class="span1 span-grid prev">
+            <span class="span1 offset1 span-grid prev">
                 <i class="icon-chevron-left"></i>
             </span>
-            <div class="span10">
-                <div id="table" class="center-div" style="display: none"></div>
-            </div>
             <span class="span1 span-grid next">
                 <i class="icon-chevron-right"></i>
             </span>
+            <span class="span1 span-grid hideable" id="table_show">
+                <i class="icon-road"></i>
+            </span>
+            <span class="span1 span-grid hideable" id="player_cards_show">
+                <i class="icon-heart"></i>
+            </span>
+            <span class="span1 span-grid hideable" id="player_names_show">
+                <i class="icon-user"></i>
+            </span>
+            <span class="span1 span-grid hideable" id="table_cards_show">
+                <i class="icon-fire"></i>
+            </span>
+            <span class="span1 span-grid preview">
+                <i class="icon-search"></i>
+            </span>
+            <span class="span1 span-grid save">
+                <i class="icon-hdd"></i>
+            </span>
         </div>
 
-        <hr>
+        <hr class="table" style="display: none" />
 
         <div class="row show-grid">
+            <div class="span10  offset1">
+                <div id="table" class="center-div table" style="display: none"></div>
+            </div>
+        </div>
+
+        <hr class="player_cards" style="display: none" />
+
+        <div class="row show-grid player_cards" style="display: none">
             <div class="span1">
                 <div id="player_1_card_1" class="center-div"></div>
             </div>
@@ -109,7 +132,7 @@ body {
             </div>
         </div>
 
-        <div class="row show-grid">
+        <div class="row show-grid player_cards" style="display: none">
             <div class="span1">
                 <input type="text" id="player_1_card_1_form" class="span1 img_form">
             </div>
@@ -133,7 +156,9 @@ body {
             </div>
         </div>
 
-        <div class="row show-grid">
+        <hr class="player_names" style="display: none" />
+
+        <div class="row show-grid player_names" sytle="display: none">
             <div class="span2">
                 <div id="player_1_name" class="center-div"></div>
             </div>
@@ -154,7 +179,7 @@ body {
             </div>
         </div>
 
-        <div class="row show-grid">
+        <div class="row show-grid player_names" style="display: none">
             <div class="span2">
                 <input type="text" id="player_1_name_form" class="span2 img_form">
             </div>
@@ -175,7 +200,7 @@ body {
             </div>
         </div>
 
-        <div class="row show-grid">
+        <div class="row show-grid table_cards" style="display: none">
             <div class="span2  offset1">
                 <div id="table_card_1" class="center-div"></div>
             </div>
@@ -193,7 +218,7 @@ body {
             </div>
         </div>
 
-        <div class="row show-grid">
+        <div class="row show-grid table_cards" style="display: none">
             <div class="span2  offset1">
                 <input type="text" id="table_card_1_form" class="span2 img_form">
             </div>
@@ -211,7 +236,7 @@ body {
             </div>
         </div>
 
-        <hr>
+        <hr />
 
         <footer>
             <p>&copy; Poke App' 2013</p>
@@ -230,27 +255,26 @@ body {
 
     var websocket = undefined,
         img_list = [
-        "table",
-        "player_1_card_1",
-        "player_1_card_2",
-        "player_1_name",
-        "player_2_cards",
-        "player_2_name",
-        "player_3_cards",
-        "player_3_name",
-        "player_4_cards",
-        "player_4_name",
-        "player_5_cards",
-        "player_5_name",
-        "player_6_cards",
-        "player_6_name",
-        "table_card_1",
-        "table_card_2",
-        "table_card_3",
-        "table_card_4",
-        "table_card_5"
+            "table",
+            "player_1_card_1",
+            "player_1_card_2",
+            "player_1_name",
+            "player_2_cards",
+            "player_2_name",
+            "player_3_cards",
+            "player_3_name",
+            "player_4_cards",
+            "player_4_name",
+            "player_5_cards",
+            "player_5_name",
+            "player_6_cards",
+            "player_6_name",
+            "table_card_1",
+            "table_card_2",
+            "table_card_3",
+            "table_card_4",
+            "table_card_5"
     ];
-
 
     onmessage = function(e) {
 
@@ -258,21 +282,25 @@ body {
 
         if (o.table_img) {
 
+            console.log("table: " + o.table_img);
+
             $.each(img_list, function(i, img_name) {
 
-                console.log(JSON.stringify(o.zones[img_name]));
+                console.log(img_name + ": " + JSON.stringify(o.zones[img_name]));
 
                 $("#" + img_name).pokerImage({
                     img: o.table_img,
                     zone: o.zones[img_name]
                 });
 
-                console.log(JSON.stringify(o.infos[img_name]));
+                if (img_name != "table") {
 
-                $("#" + img_name + "_form").pokerInfo({
-                    info: o.infos[img_name]
-                });
+                    console.log(img_name + ": " + JSON.stringify(o.infos[img_name]));
 
+                    $("#" + img_name + "_form").pokerInfo({
+                        info: o.infos[img_name]
+                    });
+                }
             });
         }
 
@@ -311,14 +339,12 @@ body {
 
         return this.each(function () {
 
-            var self = $(this);
+            var self = $(this),
+                info = self.info?o.info:"";
 
-            if (o.info) {
-                self.val(o.info)
-            }
+            self.val(o.info);
         });
     };
-
 
     $.fn.pokerTable = function (o) {
 
@@ -336,31 +362,37 @@ body {
                 },
                 function(data) {
 
-                    var url = data["west.socket:url"],
-                        prev = self.find(".prev"),
-                        next = self.find(".next");
+                    var url = data["west.socket:url"];
 
                     websocket = new WebSocket(url);
                     websocket.onmessage = onmessage; 
 
                     console.log("connected to: "+ url);
 
-                    prev.click(function () {
-
+                    self.find(".prev").click(function () {
                         websocket.send(JSON.stringify({
                             action: "prev",
                             current: $("#table").css("backgroundImage")
                         }));
-
                     });
 
-                    next.click(function () {
-
+                    self.find(".next").click(function () {
                         websocket.send(JSON.stringify({
                             action: "next",
                             current: $("#table").css("backgroundImage")
                         }));
+                    });
 
+                    self.find(".preview").click(function () {
+                        websocket.send(JSON.stringify({
+                            action: "preview",
+                        }));
+                    });
+
+                    self.find(".save").click(function () {
+                        websocket.send(JSON.stringify({
+                            action: "save",
+                        }));
                     });
                 },
                 "json"
@@ -387,16 +419,42 @@ body {
                     form: self.attr("id").replace("_form", ""),
                     value: self.val()
                 }));
-
             })            
+        });
+    };
+
+
+    $.fn.pokerShow = function (o) {
+
+        var _default = {},
+            o = $.extend(_default, o);
+
+        return this.each(function () {
+
+            var self    = $(this),
+                target  = $("." + self.attr("id").replace("_show", ""));
+
+            // hide all
+            target.hide();
+
+            self.click(function () {
+    
+                var current = $("#table").css("backgroundImage"),
+                    visible = target.first().css("display");
+
+                if (current != "none" && visible == "none")
+                    target.show()
+                else 
+                    target.hide()
+            });
         });
     };
 })(jQuery);
 
 $("#poker_table").pokerTable();
 $(".img_form").pokerForms();
+$(".hideable").pokerShow();
 
 </script>
 </body>
 </html>
-
