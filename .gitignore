@@ -2,3 +2,4 @@
 *.pyc
 *.data
 .auth
+poker/static/poker/resources/img/table

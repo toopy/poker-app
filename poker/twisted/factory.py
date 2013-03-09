@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 import json
 import os
+from itertools import combinations
 
 import numpy
 
@@ -13,8 +15,17 @@ from pycv.toolbox.image.size import Size as S
 
 from west.socket.twisted.factory import SocketFactory
 
+from poker.hand import Hand
+
 import logging
 logger = logging.getLogger(__name__)
+
+
+NULL = [
+    None,
+    "nn",
+    "_"
+]
 
 
 class PokerDico(Dictionary):
@@ -108,6 +119,16 @@ IMG_LIST = [
     "table_card_5",
 ]
 
+CARD_KEYS = [
+    "player_1_card_1",
+    "player_1_card_2",
+    "table_card_1",
+    "table_card_2",
+    "table_card_3",
+    "table_card_4",
+    "table_card_5",
+]
+
 
 class Zone(object):
 
@@ -140,6 +161,8 @@ class PreviewTableFactory(SocketFactory):
         self.__config = Config()
         self.__dico = PokerDico()
         self.robot = None
+        self.infos = None
+        self.stats = None
 
     def current_path(self, current, root=None):
         # split current
@@ -172,18 +195,35 @@ class PreviewTableFactory(SocketFactory):
     def get_zones(self):
         return dict([(k, self.split_zone(k)) for k in IMG_LIST])
 
-    def _info(self, zone, value):
+    def _info(self, key, value):
+        # no robot
+        if not self.robot:
+            return
+        # keep value
+        self.infos[key] = value
+        # get key zone
+        zone = Zone(**self.robot._zones[key])
+        # update
         self.robot.remember(zone.get_pos(), zone.get_size(), value)
 
-    def info_(self, key, zone):
+    def info_(self, key):
         # no robot
         if not self.robot:
             return ""
+        # get key zone
+        zone = Zone(**self.robot._zones[key])
         # get value
         return self.robot.get_value(zone.get_pos(), zone.get_size())
 
-    def get_infos(self, zones):
-        return dict([(k, self.info_(k, Zone(**zones[k]))) for k in IMG_LIST])
+    def get_infos(self):
+        return dict([(k, self.info_(k)) for k in IMG_LIST])
+
+    def get_stats(self):
+        cards = [self.infos[k] for k in CARD_KEYS
+                 if self.infos[k] not in NULL]
+        for cards in combinations(cards, r=5):
+            print Hand(*cards).get_rank()
+        return {}
 
     def message(self, client, msg, refresh=False):
         # DEBUG
@@ -192,7 +232,6 @@ class PreviewTableFactory(SocketFactory):
         o = json.loads(msg)
         action = o.get("action")
         current = o.get("current")
-        zones = self.get_zones()
         # action factory
         if action in ["next", "prev"] or refresh:
             current, table_img = self.next_path(current=current, ask=action)
@@ -200,17 +239,19 @@ class PreviewTableFactory(SocketFactory):
             if self.robot:
                 self.__dico.save()
             self.__config.path = current
-            self.robot = Pokerbot(self.__config, self.__dico, zones)
+            self.robot = Pokerbot(self.__config, self.__dico, self.get_zones())
             # get infos
-            infos = self.get_infos(zones)
+            self.infos = self.get_infos()
+            self.stats = self.get_stats()
             resp = {
                 "table_img": table_img,
-                "zones": zones,
-                "infos": infos,
+                "zones": self.robot._zones,
+                "infos": self.infos,
             }
         elif action == "form":
             k = o[action]
-            self._info(Zone(**zones[k]), o.get("value", ""))
+            self._info(k, o.get("value", ""))
+            self.stats = self.get_stats() # stats update
             resp = {
                 "msg": "info `%s` updated." % k
             }
