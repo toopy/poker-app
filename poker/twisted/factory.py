@@ -15,7 +15,9 @@ from pycv.toolbox.image.size import Size as S
 
 from west.socket.twisted.factory import SocketFactory
 
-from poker.hand import Hand
+from poker import hand
+from poker import table
+from poker import odds
 
 import logging
 logger = logging.getLogger(__name__)
@@ -219,10 +221,17 @@ class PreviewTableFactory(SocketFactory):
         return dict([(k, self.info_(k)) for k in IMG_LIST])
 
     def get_stats(self):
-        cards = [self.infos[k] for k in CARD_KEYS
-                 if self.infos[k] not in NULL]
-        for cards in combinations(cards, r=5):
-            print Hand(*cards).get_rank()
+        # compute best hand
+        cards = [self.infos[k] for k in CARD_KEYS if self.infos[k] not in NULL]
+        h = min([hand.Hand(*c) for c in combinations(cards, r=5)])
+        print "stats;h:%s" % h
+        # get current turn
+        cards_all = [self.infos[k] for k in CARD_KEYS if self.infos[k]]
+        t = table.Table(cards_all).get_turn()
+        print "stats;t:%s" % t
+        # get win pourcentage
+        o = odds.Odds(cards, t, h).get_odds()
+        print "stats;o:%s" % o
         return {}
 
     def message(self, client, msg, refresh=False):

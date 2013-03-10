@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+# http://en.wikipedia.org/wiki/List_of_poker_hands
+
 RANKS = [2,3,4,5,4,6,7,8,9,10,"J","Q","K","A"]
 SUITS = ["c","d","h","s"] # clubs (♧), diamonds (♢), hearts (♥) and spades (♤)
 
