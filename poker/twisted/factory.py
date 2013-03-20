@@ -3,6 +3,8 @@ import json
 import os
 from itertools import combinations
 
+from twisted.internet.task import LoopingCall
+
 import numpy
 
 import cv2
@@ -26,7 +28,8 @@ logger = logging.getLogger(__name__)
 NULL = [
     None,
     "nn",
-    "_"
+    "_",
+    "n",
 ]
 
 
@@ -94,8 +97,6 @@ class Pokerbot(Robot):
         Robot.preview(self)
 
 
-KEY = "poker.app"
-
 ROOT = os.path.join("poker", "static", "poker", "resources", "img", "table")
 STATIC = os.path.join("/fanstatic", "poker", "img", "table")
 
@@ -129,6 +130,14 @@ CARD_KEYS = [
     "table_card_3",
     "table_card_4",
     "table_card_5",
+]
+
+CARD_OTHERS = [
+    "player_2_cards",
+    "player_3_cards",
+    "player_4_cards",
+    "player_5_cards",
+    "player_6_cards",
 ]
 
 
@@ -166,6 +175,21 @@ class PreviewTableFactory(SocketFactory):
         self.infos = None
         self.stats = None
 
+    def start(self):
+        delay = self.get_config("poker.refresh")
+        # not set
+        if not delay:
+            return
+        # start loop
+        try:
+            LoopingCall(self.refresh).start(float(delay))
+        except ValueError, e:
+            pass
+
+    def refresh(self):
+        for c in self.clients:
+            self.message(c, "{}", refresh=True)
+
     def current_path(self, current, root=None):
         # split current
         current = None if not current\
@@ -176,7 +200,7 @@ class PreviewTableFactory(SocketFactory):
     def next_path(self, current=None, root=None, ask="next"):
         # list available files
         files = os.listdir(ROOT)
-        files.reverse()
+        files.sort(reverse=True)
         # split current
         current = self.current_path(current)
         # get current pos
@@ -223,20 +247,36 @@ class PreviewTableFactory(SocketFactory):
     def get_stats(self):
         # compute best hand
         cards = [self.infos[k] for k in CARD_KEYS if self.infos[k] not in NULL]
-        h = min([hand.Hand(*c) for c in combinations(cards, r=5)])
-        print "stats;h:%s" % h
+        hand_cls = hand.Hand if len(cards) > 2 else hand.HandPreflop
+        if len(cards) > 2:
+            hands = [hand_cls(*c).get_rank() for c in combinations(cards, r=2)]
+            h = 0 if not hands else min(hands)
+        else:
+            h = hand_cls(*cards).get_rank()
+        print "stats:h:%s" % h
         # get current turn
-        cards_all = [self.infos[k] for k in CARD_KEYS if self.infos[k]]
+        cards_all = [self.infos[k] for k in CARD_KEYS]
         t = table.Table(cards_all).get_turn()
-        print "stats;t:%s" % t
+        print "stats:t:%s" % t
         # get win pourcentage
-        o = odds.Odds(cards, t, h).get_odds()
-        print "stats;o:%s" % o
-        return {}
+        o = odds.Odds(cards, h, t).get_odds()
+        print "stats:o:%s" % o
+        # others
+        oth = [self.infos[k.replace("cards", "name")]
+                     for k in CARD_OTHERS if self.infos[k] not in NULL]
+        print "stats:oth:%s" % oth
+        stats = {
+            "hand": h,
+            "turn": t,
+            "odds": o,
+            "others": oth,
+        }
+        print "stats:%s" % stats
+        return stats
 
     def message(self, client, msg, refresh=False):
         # DEBUG
-        logger.debug("m:m:%s" % msg)
+        # logger.debug("m:m:%s" % msg)
         # parse msg
         o = json.loads(msg)
         action = o.get("action")
@@ -279,8 +319,8 @@ class PreviewTableFactory(SocketFactory):
                 "msg": "unknown action: %s" % action
             }
         # DEBUG
-        logger.debug("m:r:%s" % resp)
-        # default echo
+        # logger.debug("m:r:%s" % resp)
+        # respond
         return self.send(client, json.dumps(resp))
 
     def send(self, client, msg):
