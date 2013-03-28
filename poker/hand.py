@@ -28,7 +28,6 @@ class HandBase(object):
     def __init__(self, *cards):
         self.cards = [self.split_card(c) for c in cards if len(c) > 1]
         self.cards.sort(key=lambda tup: tup[0])
-        print self.cards
 
     def split_card(self, card):
         # little check
@@ -57,24 +56,46 @@ class HandBase(object):
 
 [
     ZERO,
-    AKS,
-    AA,
-    KQS_QJS_JTS,
-    AK,
-    KK_QQ,
-    JJ,
-    KQ_QJ,
-    TT,
-    JT,
-    T9S__32S,
-    AQS__QTS,
-    Q_MORE,
-    J_MORE,
-    T_MORE,
-    T9__32,
-    _9_MORE,
     _9__2,
+    _9_MORE,
+    T9__32,
+    T_MORE,
+    J_MORE,
+    Q_MORE,
+    AQS__QTS,
+    T9S__32S,
+    JT,
+    TT,
+    KQ_QJ,
+    JJ,
+    KK_QQ,
+    AK,
+    KQS_QJS_JTS,
+    AA,
+    AKS,
 ] = range(18)
+
+
+PREFLOP_NAMES = [
+    'ZERO',
+    '9__2',
+    '9_MORE',
+    'T9__32',
+    'T_MORE',
+    'J_MORE',
+    'Q_MORE',
+    'AQS__QTS',
+    'T9S__32S',
+    'JT',
+    'TT',
+    'KQ_QJ',
+    'JJ',
+    'KK_QQ',
+    'AK',
+    'KQS_QJS_JTS',
+    'AA',
+    'AKS',
+]
 
 
 class HandPreflop(HandBase):
@@ -282,6 +303,10 @@ class HandPreflop(HandBase):
          or self.is_9_more()\
          or self.is_9__2()
 
+    @staticmethod
+    def get_name(rank):
+        return '' if not rank else PREFLOP_NAMES[rank]
+
 
 [
     ZERO,
@@ -296,6 +321,20 @@ class HandPreflop(HandBase):
     STRAIGHT_FLUSH,
     ROYAL_FLUSH,
 ] = range(11)
+
+NAMES = [
+    'ZERO',
+    'HIGH_CARD',
+    'ONE_PAIR',
+    'TWO_PAIRS',
+    'THREE_OF_A_KIND',
+    'STRAIGHT',
+    'FLUSH',
+    'FULL_HOUSE',
+    'FOUR_OF_A_KIND',
+    'STRAIGHT_FLUSH',
+    'ROYAL_FLUSH',
+]
 
 
 class Hand(HandBase):
@@ -439,3 +478,7 @@ class Hand(HandBase):
             or self.is_two_pairs()\
             or self.is_one_pair()\
             or self.is_high_card()
+
+    @staticmethod
+    def get_name(rank):
+        return '' if not rank else NAMES[rank]

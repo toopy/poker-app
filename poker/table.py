@@ -1,36 +1,41 @@
+import logging
+logger = logging.getLogger(__name__)
 
-
-NULL = [
-    None,
-    "nn",
-    "_"
-]
 
 [
+    NULL,
     PREFLOP,
     FLOP,
     TURN,
     RIVER
-] = range(4)
+] = range(5)
 
+NAMES = [
+    'NULL',
+    'PREFLOP',
+    'FLOP',
+    'TURN',
+    'RIVER'
+]
 
 class Table(object):
 
-    def __init__(self, cards):
-        self.cards = cards
+    def __init__(self, board):
+        self.board = board
 
     def get_turn(self):
-        for i, c in enumerate(self.cards):
-            nb_cards = i + 1
-            if c not in NULL:
-                continue
-            if i == 2: # in range(0, 2):
-                return PREFLOP
-            if i == 5: # in range(2, 5):
-                return FLOP
-            if i == 6: # in range(5, 6):
-                return TURN
-            if i == 7: # in range(6, 7):
-                return RIVER
-            print "Unknow turn: %s" % i
+        nb_cards = len(self.board)
+        if nb_cards == 0:
+            return PREFLOP
+        if nb_cards == 3:
+            return FLOP
+        if nb_cards == 4:
+            return TURN
+        if nb_cards == 5:
+            return RIVER
+        logger.debug('t:invalid board length:%s' % nb_cards)        
+        return NULL
 
+    @staticmethod
+    def get_name(turn):
+        return '' if not turn else NAMES[turn]

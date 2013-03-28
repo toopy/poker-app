@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 import json
 import os
+
+import logging
+logger = logging.getLogger(__name__)
+
+from functools import partial
 from itertools import combinations
 
 from twisted.internet.task import LoopingCall
-
-import numpy
-
-import cv2
 
 from pycv.toolbox.image.config import Config
 from pycv.toolbox.image.dictionary import Dictionary
@@ -15,14 +16,19 @@ from pycv.toolbox.image.position import Position as P
 from pycv.toolbox.image.robot import Robot
 from pycv.toolbox.image.size import Size as S
 
+
+try:
+    import pokereval
+except Exception, e:
+    logger.exception(e)
+    pokereval = None
+
+
 from west.socket.twisted.factory import SocketFactory
 
 from poker import hand
 from poker import table
 from poker import odds
-
-import logging
-logger = logging.getLogger(__name__)
 
 
 NULL = [
@@ -244,32 +250,61 @@ class PreviewTableFactory(SocketFactory):
     def get_infos(self):
         return dict([(k, self.info_(k)) for k in IMG_LIST])
 
+    def ev_cards(self, cards):
+        for i, c in enumerate(cards):
+            c = c.lower()
+            for n in NULL[1:]:
+                c = c.replace(n, '__')
+            cards[i] = c
+        return cards
+
+    def ev_hand(self, cards, others):
+        # prepare pockets for eval
+        pockets = [self.ev_cards(cards[:2])]
+        pockets += [['__', '__'] for o in others]
+        # prepare board for eval
+        board = self.ev_cards(cards[2:])
+        # get config iterations parameter
+        iterations = self.get_config("eval.iterations")
+        iterations = None if not iterations else int(iterations)
+        # prepare kwargs
+        kwargs = {
+            'game': 'holdem',
+            'pockets': pockets,
+            'board': board,
+        }
+        if iterations:
+            kwargs['iterations'] = iterations
+        # eval
+        ev = pokereval.PokerEval().poker_eval(**kwargs)
+        return [e['ev'] for e in ev['eval']]
+
     def get_stats(self):
         # compute best hand
-        cards = [self.infos[k] for k in CARD_KEYS if self.infos[k] not in NULL]
+        cards = [self.infos[k] for k in CARD_KEYS\
+                               if self.infos[k] not in NULL]
         hand_cls = hand.Hand if len(cards) > 2 else hand.HandPreflop
         if len(cards) > 2:
-            hands = [hand_cls(*c).get_rank() for c in combinations(cards, r=2)]
-            h = 0 if not hands else min(hands)
+            hands = [hand_cls(*c).get_rank() for c in combinations(cards, r=5)]
+            h = 0 if not hands else max(hands)
         else:
             h = hand_cls(*cards).get_rank()
-        print "stats:h:%s" % h
         # get current turn
-        cards_all = [self.infos[k] for k in CARD_KEYS]
-        t = table.Table(cards_all).get_turn()
-        print "stats:t:%s" % t
-        # get win pourcentage
-        o = odds.Odds(cards, h, t).get_odds()
-        print "stats:o:%s" % o
+        board = [self.infos[k] for k in CARD_KEYS[2:]\
+                               if self.infos[k] not in NULL]
+        table_cls = table.Table(board)
+        t = table_cls.get_turn()
         # others
         oth = [self.infos[k.replace("cards", "name")]
                      for k in CARD_OTHERS if self.infos[k] not in NULL]
-        print "stats:oth:%s" % oth
+        # eval
+        ev = self.ev_hand(cards, oth)
+        # res
         stats = {
-            "hand": h,
-            "turn": t,
-            "odds": o,
-            "others": oth,
+            "hand": {'value': h, 'name': hand_cls.get_name(h)},
+            "turn": {'value': t, 'name': table_cls.get_name(t)},
+            "players": [self.infos['player_1_name']] + oth,
+            "eval": ev,
         }
         print "stats:%s" % stats
         return stats
