@@ -1,0 +1,861 @@
+﻿Main PokerStars No 93112556711 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:17:40 CUST [28/01/2013 11:17:40 ET]
+Table 'Vega VI' 6-max Siège #4 est au bouton.
+Siège 1 : genie001 (2.21 € en jetons) 
+Siège 2 : agkiller69 (2 € en jetons) 
+Siège 4 : TFC37 (2.18 € en jetons) 
+Siège 5 : iflo_8 (1.95 € en jetons) 
+Siège 6 : pipao1 (2.11 € en jetons) 
+iflo_8 : met la petite blind. 0.01 €
+pipao1 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [6c Kc]
+genie001 : suit. 0.02 €
+agkiller69 : relance. 0.06 € à 0.08 €
+TFC37 : passe. 
+iflo_8 : suit. 0.07 €
+pipao1 : suit. 0.06 €
+genie001 : suit. 0.06 €
+*** FLOP *** [5h 7s 3c]
+iflo_8 : parole 
+pipao1 : parole 
+genie001 : parole 
+agkiller69 : parole 
+*** TOURNANT *** [5h 7s 3c] [Ts]
+MR2C quitte la table.
+iflo_8 : parole 
+pipao1 : mise. 0.22 €
+genie001 : passe. 
+agkiller69 : passe. 
+iflo_8 : passe. 
+Personne n'a suivi. (0.22 €) sont retournés à pipao1.
+pipao1 a remporté 0.30 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.32 € | Commission 0.02 € 
+Tableau [5h 7s 3c Ts]
+Siège 1 : genie001 s'est couché. sur le Tournant
+Siège 2 : agkiller69 s'est couché. sur le Tournant
+Siège 4 : TFC37 (bouton) s'est couché. avant Flop (n'a pas misé)
+Siège 5 : iflo_8 (petite blind) s'est couché. sur le Tournant
+Siège 6 : pipao1 (grosse blind) a remporté (0.30 €)
+
+
+
+Main PokerStars No 93112615401 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:18:49 CUST [28/01/2013 11:18:49 ET]
+Table 'Vega VI' 6-max Siège #5 est au bouton.
+Siège 1 : genie001 (2.13 € en jetons) 
+Siège 2 : agkiller69 (2 € en jetons) 
+Siège 4 : TFC37 (2.18 € en jetons) 
+Siège 5 : iflo_8 (1.87 € en jetons) 
+Siège 6 : pipao1 (2.33 € en jetons) 
+pipao1 : met la petite blind. 0.01 €
+genie001 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [3s Kh]
+agkiller69 : passe. 
+TFC37 : relance. 0.02 € à 0.04 €
+iflo_8 : passe. 
+pipao1 : passe. 
+genie001 : suit. 0.02 €
+*** FLOP *** [2d 2c 9c]
+genie001 : parole 
+TFC37 : mise. 0.06 €
+genie001 : passe. 
+Personne n'a suivi. (0.06 €) sont retournés à TFC37.
+TFC37 a remporté 0.08 €  lors du pot .
+TFC37 : ne montre pas sa main. 
+*** SYNTHÈSE ***
+Pot total 0.09 € | Commission 0.01 € 
+Tableau [2d 2c 9c]
+Siège 1 : genie001 (grosse blind) s'est couché. sur le Flop
+Siège 2 : agkiller69 s'est couché. avant Flop (n'a pas misé)
+Siège 4 : TFC37 a remporté (0.08 €)
+Siège 5 : iflo_8 (bouton) s'est couché. avant Flop (n'a pas misé)
+Siège 6 : pipao1 (petite blind) s'est couché. avant Flop
+
+
+
+Main PokerStars No 93112646958 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:19:25 CUST [28/01/2013 11:19:25 ET]
+Table 'Vega VI' 6-max Siège #6 est au bouton.
+Siège 1 : genie001 (2.09 € en jetons) 
+Siège 2 : agkiller69 (2 € en jetons) 
+Siège 4 : TFC37 (2.22 € en jetons) 
+Siège 5 : iflo_8 (1.87 € en jetons) 
+Siège 6 : pipao1 (2.32 € en jetons) 
+genie001 : met la petite blind. 0.01 €
+agkiller69 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [7d Kc]
+TFC37 : passe. 
+iflo_8 : passe. 
+pipao1 : relance. 0.04 € à 0.06 €
+genie001 : suit. 0.05 €
+agkiller69 : suit. 0.04 €
+*** FLOP *** [6s 2s 9d]
+genie001 : parole 
+agkiller69 : parole 
+pipao1 : mise. 0.16 €
+genie001 : passe. 
+agkiller69 : passe. 
+Personne n'a suivi. (0.16 €) sont retournés à pipao1.
+pipao1 a remporté 0.17 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.18 € | Commission 0.01 € 
+Tableau [6s 2s 9d]
+Siège 1 : genie001 (petite blind) s'est couché. sur le Flop
+Siège 2 : agkiller69 (grosse blind) s'est couché. sur le Flop
+Siège 4 : TFC37 s'est couché. avant Flop (n'a pas misé)
+Siège 5 : iflo_8 s'est couché. avant Flop (n'a pas misé)
+Siège 6 : pipao1 (bouton) a remporté (0.17 €)
+
+
+
+Main PokerStars No 93112695597 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:20:22 CUST [28/01/2013 11:20:22 ET]
+Table 'Vega VI' 6-max Siège #1 est au bouton.
+Siège 1 : genie001 (2.03 € en jetons) 
+Siège 2 : agkiller69 (2 € en jetons) 
+Siège 4 : TFC37 (2.22 € en jetons) 
+Siège 5 : iflo_8 (1.87 € en jetons) 
+Siège 6 : pipao1 (2.43 € en jetons) 
+agkiller69 : met la petite blind. 0.01 €
+TFC37 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [Qh Jh]
+iflo_8 : suit. 0.02 €
+pipao1 : passe. 
+genie001 : suit. 0.02 €
+agkiller69 : passe. 
+TFC37 : parole 
+*** FLOP *** [2d 8h 8c]
+TFC37 : parole 
+iflo_8 : parole 
+genie001 : parole 
+*** TOURNANT *** [2d 8h 8c] [6h]
+TFC37 : mise. 0.02 €
+iflo_8 : suit. 0.02 €
+genie001 : passe. 
+*** RIVIÈRE *** [2d 8h 8c 6h] [3h]
+TFC37 : mise. 0.08 €
+iflo_8 : relance. 0.08 € à 0.16 €
+TFC37 : suit. 0.08 €
+*** ABATTAGE ***
+iflo_8 : montre [Qh Jh] (une couleur, hauteur Dame)
+TFC37 : cache la main perdante. 
+iflo_8 a remporté 0.40 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.43 € | Commission 0.03 € 
+Tableau [2d 8h 8c 6h 3h]
+Siège 1 : genie001 (bouton) s'est couché. sur le Tournant
+Siège 2 : agkiller69 (petite blind) s'est couché. avant Flop
+Siège 4 : TFC37 (grosse blind) a caché la main perdante. [8s Qd]
+Siège 5 : iflo_8 a montré [Qh Jh] et a gagné (0.40 €) avec une couleur, hauteur Dame
+Siège 6 : pipao1 s'est couché. avant Flop (n'a pas misé)
+
+
+
+Main PokerStars No 93112745577 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:21:21 CUST [28/01/2013 11:21:21 ET]
+Table 'Vega VI' 6-max Siège #2 est au bouton.
+Siège 1 : genie001 (2.01 € en jetons) 
+Siège 2 : agkiller69 (2 € en jetons) 
+Siège 4 : TFC37 (2.02 € en jetons) 
+Siège 5 : iflo_8 (2.07 € en jetons) 
+Siège 6 : pipao1 (2.43 € en jetons) 
+TFC37 : met la petite blind. 0.01 €
+iflo_8 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [2d 2h]
+pipao1 : passe. 
+genie001 : suit. 0.02 €
+agkiller69 : suit. 0.02 €
+TFC37 : suit. 0.01 €
+iflo_8 : parole 
+*** FLOP *** [Kh 5c 4c]
+TFC37 : parole 
+iflo_8 : parole 
+genie001 : parole 
+agkiller69 : parole 
+*** TOURNANT *** [Kh 5c 4c] [8h]
+TFC37 : parole 
+iflo_8 : parole 
+genie001 : parole 
+agkiller69 : parole 
+*** RIVIÈRE *** [Kh 5c 4c 8h] [3c]
+TFC37 : mise. 0.06 €
+iflo_8 : passe. 
+genie001 : passe. 
+agkiller69 : passe. 
+Personne n'a suivi. (0.06 €) sont retournés à TFC37.
+TFC37 a remporté 0.08 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.08 € | Commission 0 € 
+Tableau [Kh 5c 4c 8h 3c]
+Siège 1 : genie001 s'est couché. sur le Rivière
+Siège 2 : agkiller69 (bouton) s'est couché. sur le Rivière
+Siège 4 : TFC37 (petite blind) a remporté (0.08 €)
+Siège 5 : iflo_8 (grosse blind) s'est couché. sur le Rivière
+Siège 6 : pipao1 s'est couché. avant Flop (n'a pas misé)
+
+
+
+Main PokerStars No 93112795753 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:22:19 CUST [28/01/2013 11:22:19 ET]
+Table 'Vega VI' 6-max Siège #4 est au bouton.
+Siège 1 : genie001 (1.99 € en jetons) 
+Siège 2 : agkiller69 (2 € en jetons) 
+Siège 4 : TFC37 (2.08 € en jetons) 
+Siège 5 : iflo_8 (2.05 € en jetons) 
+Siège 6 : pipao1 (2.43 € en jetons) 
+iflo_8 : met la petite blind. 0.01 €
+pipao1 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [Tc 2h]
+genie001 : suit. 0.02 €
+agkiller69 : passe. 
+TFC37 : suit. 0.02 €
+iflo_8 : passe. 
+pipao1 : parole 
+*** FLOP *** [Qd Kh 4c]
+pipao1 : parole 
+genie001 : parole 
+TFC37 : mise. 0.04 €
+pipao1 : passe. 
+genie001 : passe. 
+Personne n'a suivi. (0.04 €) sont retournés à TFC37.
+TFC37 a remporté 0.07 €  lors du pot .
+TFC37 : ne montre pas sa main. 
+*** SYNTHÈSE ***
+Pot total 0.07 € | Commission 0 € 
+Tableau [Qd Kh 4c]
+Siège 1 : genie001 s'est couché. sur le Flop
+Siège 2 : agkiller69 s'est couché. avant Flop (n'a pas misé)
+Siège 4 : TFC37 (bouton) a remporté (0.07 €)
+Siège 5 : iflo_8 (petite blind) s'est couché. avant Flop
+Siège 6 : pipao1 (grosse blind) s'est couché. sur le Flop
+
+
+
+Main PokerStars No 93112831616 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:23:01 CUST [28/01/2013 11:23:01 ET]
+Table 'Vega VI' 6-max Siège #5 est au bouton.
+Siège 1 : genie001 (1.97 € en jetons) 
+Siège 2 : agkiller69 (2 € en jetons) 
+Siège 4 : TFC37 (2.13 € en jetons) 
+Siège 5 : iflo_8 (2.04 € en jetons) 
+Siège 6 : pipao1 (2.41 € en jetons) 
+pipao1 : met la petite blind. 0.01 €
+genie001 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [Kd Qc]
+agkiller69 : passe. 
+TFC37 : passe. 
+iflo_8 : suit. 0.02 €
+pipao1 : passe. 
+genie001 : relance. 0.08 € à 0.10 €
+iflo_8 : suit. 0.08 €
+*** FLOP *** [3s 2c 3d]
+genie001 : parole 
+iflo_8 : parole 
+*** TOURNANT *** [3s 2c 3d] [5c]
+genie001 : parole 
+iflo_8 : parole 
+*** RIVIÈRE *** [3s 2c 3d 5c] [Kc]
+genie001 : parole 
+iflo_8 : mise. 0.08 €
+genie001 : passe. 
+Personne n'a suivi. (0.08 €) sont retournés à iflo_8.
+iflo_8 a remporté 0.20 €  lors du pot .
+jvgap rejoint la table au siège #3 .
+*** SYNTHÈSE ***
+Pot total 0.21 € | Commission 0.01 € 
+Tableau [3s 2c 3d 5c Kc]
+Siège 1 : genie001 (grosse blind) s'est couché. sur le Rivière
+Siège 2 : agkiller69 s'est couché. avant Flop (n'a pas misé)
+Siège 4 : TFC37 s'est couché. avant Flop (n'a pas misé)
+Siège 5 : iflo_8 (bouton) a remporté (0.20 €)
+Siège 6 : pipao1 (petite blind) s'est couché. avant Flop
+
+
+
+Main PokerStars No 93112877872 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:23:55 CUST [28/01/2013 11:23:55 ET]
+Table 'Vega VI' 6-max Siège #6 est au bouton.
+Siège 1 : genie001 (2 € en jetons) 
+Siège 2 : agkiller69 (2 € en jetons) 
+Siège 4 : TFC37 (2.13 € en jetons) 
+Siège 5 : iflo_8 (2.14 € en jetons) 
+Siège 6 : pipao1 (2.40 € en jetons) 
+genie001 : met la petite blind. 0.01 €
+agkiller69 : met la grosse blind. 0.02 €
+jvgap : ne joue pas. 
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [Qc Qd]
+TFC37 : relance. 0.02 € à 0.04 €
+iflo_8 : suit. 0.04 €
+pipao1 : suit. 0.04 €
+genie001 : suit. 0.03 €
+agkiller69 : passe. 
+*** FLOP *** [Qs 4h 9c]
+genie001 : parole 
+TFC37 : parole 
+iflo_8 : mise. 0.02 €
+pipao1 : suit. 0.02 €
+genie001 : suit. 0.02 €
+TFC37 : suit. 0.02 €
+*** TOURNANT *** [Qs 4h 9c] [2d]
+genie001 : parole 
+TFC37 : parole 
+iflo_8 : mise. 0.02 €
+pipao1 : suit. 0.02 €
+genie001 : suit. 0.02 €
+TFC37 : suit. 0.02 €
+*** RIVIÈRE *** [Qs 4h 9c 2d] [8d]
+genie001 : parole 
+TFC37 : parole 
+iflo_8 : mise. 0.04 €
+pipao1 : passe. 
+genie001 : passe. 
+TFC37 : passe. 
+Personne n'a suivi. (0.04 €) sont retournés à iflo_8.
+iflo_8 a remporté 0.32 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.34 € | Commission 0.02 € 
+Tableau [Qs 4h 9c 2d 8d]
+Siège 1 : genie001 (petite blind) s'est couché. sur le Rivière
+Siège 2 : agkiller69 (grosse blind) s'est couché. avant Flop
+Siège 4 : TFC37 s'est couché. sur le Rivière
+Siège 5 : iflo_8 a remporté (0.32 €)
+Siège 6 : pipao1 (bouton) s'est couché. sur le Rivière
+
+
+
+Main PokerStars No 93112962501 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:25:34 CUST [28/01/2013 11:25:34 ET]
+Table 'Vega VI' 6-max Siège #1 est au bouton.
+Siège 1 : genie001 (1.92 € en jetons) 
+Siège 2 : agkiller69 (2 € en jetons) 
+Siège 3 : jvgap (2 € en jetons) 
+Siège 4 : TFC37 (2.05 € en jetons) 
+Siège 5 : iflo_8 (2.38 € en jetons) 
+Siège 6 : pipao1 (2.32 € en jetons) 
+agkiller69 : met la petite blind. 0.01 €
+jvgap : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [6h 5s]
+TFC37 : suit. 0.02 €
+iflo_8 : passe. 
+pipao1 : passe. 
+genie001 : suit. 0.02 €
+agkiller69 : passe. 
+jvgap : parole 
+*** FLOP *** [4s 9d 7s]
+jvgap : parole 
+TFC37 : parole 
+genie001 : parole 
+*** TOURNANT *** [4s 9d 7s] [6s]
+jvgap : parole 
+TFC37 : mise. 0.04 €
+genie001 : passe. 
+jvgap : suit. 0.04 €
+*** RIVIÈRE *** [4s 9d 7s 6s] [Qh]
+jvgap : parole 
+TFC37 : mise. 0.12 €
+jvgap : relance. 0.12 € à 0.24 €
+TFC37 : passe. 
+Personne n'a suivi. (0.12 €) sont retournés à jvgap.
+jvgap a remporté 0.37 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.39 € | Commission 0.02 € 
+Tableau [4s 9d 7s 6s Qh]
+Siège 1 : genie001 (bouton) s'est couché. sur le Tournant
+Siège 2 : agkiller69 (petite blind) s'est couché. avant Flop
+Siège 3 : jvgap (grosse blind) a remporté (0.37 €)
+Siège 4 : TFC37 s'est couché. sur le Rivière
+Siège 5 : iflo_8 s'est couché. avant Flop (n'a pas misé)
+Siège 6 : pipao1 s'est couché. avant Flop (n'a pas misé)
+
+
+
+Main PokerStars No 93113015795 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:26:36 CUST [28/01/2013 11:26:36 ET]
+Table 'Vega VI' 6-max Siège #2 est au bouton.
+Siège 1 : genie001 (2 € en jetons) 
+Siège 2 : agkiller69 (2 € en jetons) 
+Siège 3 : jvgap (2.19 € en jetons) 
+Siège 4 : TFC37 (1.87 € en jetons) 
+Siège 5 : iflo_8 (2.38 € en jetons) 
+Siège 6 : pipao1 (2.32 € en jetons) 
+jvgap : met la petite blind. 0.01 €
+TFC37 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [Jc Jd]
+iflo_8 : suit. 0.02 €
+pipao1 : relance. 0.06 € à 0.08 €
+genie001 : suit. 0.08 €
+agkiller69 : suit. 0.08 €
+jvgap : suit. 0.07 €
+TFC37 : suit. 0.06 €
+iflo_8 : suit. 0.06 €
+*** FLOP *** [8d Qc 5h]
+jvgap : parole 
+TFC37 : parole 
+iflo_8 : mise. 0.08 €
+pipao1 : suit. 0.08 €
+genie001 : suit. 0.08 €
+agkiller69 : passe. 
+jvgap : passe. 
+TFC37 : passe. 
+*** TOURNANT *** [8d Qc 5h] [8s]
+iflo_8 : mise. 0.08 €
+pipao1 : suit. 0.08 €
+genie001 : passe. 
+*** RIVIÈRE *** [8d Qc 5h 8s] [Ac]
+iflo_8 : mise. 0.20 €
+pipao1 : passe. 
+Personne n'a suivi. (0.20 €) sont retournés à iflo_8.
+iflo_8 a remporté 0.83 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.88 € | Commission 0.05 € 
+Tableau [8d Qc 5h 8s Ac]
+Siège 1 : genie001 s'est couché. sur le Tournant
+Siège 2 : agkiller69 (bouton) s'est couché. sur le Flop
+Siège 3 : jvgap (petite blind) s'est couché. sur le Flop
+Siège 4 : TFC37 (grosse blind) s'est couché. sur le Flop
+Siège 5 : iflo_8 a remporté (0.83 €)
+Siège 6 : pipao1 s'est couché. sur le Rivière
+
+
+
+Main PokerStars No 93113116870 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:28:35 CUST [28/01/2013 11:28:35 ET]
+Table 'Vega VI' 6-max Siège #3 est au bouton.
+Siège 1 : genie001 (2 € en jetons) 
+Siège 2 : agkiller69 (2 € en jetons) 
+Siège 3 : jvgap (2.11 € en jetons) 
+Siège 4 : TFC37 (1.79 € en jetons) 
+Siège 5 : iflo_8 (2.97 € en jetons) 
+Siège 6 : pipao1 (2.08 € en jetons) 
+TFC37 : met la petite blind. 0.01 €
+iflo_8 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [2c 9c]
+pipao1 a dépassé le temps imparti.
+pipao1 : passe. 
+genie001 : suit. 0.02 €
+agkiller69 : relance. 0.06 € à 0.08 €
+jvgap : passe. 
+TFC37 : passe. 
+iflo_8 : passe. 
+genie001 : passe. 
+Personne n'a suivi. (0.06 €) sont retournés à agkiller69.
+agkiller69 a remporté 0.07 €  lors du pot .
+agkiller69 : ne montre pas sa main. 
+*** SYNTHÈSE ***
+Pot total 0.07 € | Commission 0 € 
+Siège 1 : genie001 s'est couché. avant Flop
+Siège 2 : agkiller69 a remporté (0.07 €)
+Siège 3 : jvgap (bouton) s'est couché. avant Flop (n'a pas misé)
+Siège 4 : TFC37 (petite blind) s'est couché. avant Flop
+Siège 5 : iflo_8 (grosse blind) s'est couché. avant Flop
+Siège 6 : pipao1 s'est couché. avant Flop (n'a pas misé)
+
+
+
+Main PokerStars No 93113149953 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:29:13 CUST [28/01/2013 11:29:13 ET]
+Table 'Vega VI' 6-max Siège #4 est au bouton.
+Siège 1 : genie001 (1.98 € en jetons) 
+Siège 2 : agkiller69 (2.05 € en jetons) 
+Siège 3 : jvgap (2.11 € en jetons) 
+Siège 4 : TFC37 (1.78 € en jetons) 
+Siège 5 : iflo_8 (2.95 € en jetons) 
+iflo_8 : met la petite blind. 0.01 €
+genie001 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [Td 7h]
+agkiller69 : passe. 
+jvgap : passe. 
+TFC37 : relance. 0.04 € à 0.06 €
+iflo_8 : passe. 
+genie001 : suit. 0.04 €
+*** FLOP *** [Jd 8d 8c]
+genie001 : parole 
+TFC37 : mise. 0.12 €
+genie001 : passe. 
+Personne n'a suivi. (0.12 €) sont retournés à TFC37.
+TFC37 a remporté 0.12 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.13 € | Commission 0.01 € 
+Tableau [Jd 8d 8c]
+Siège 1 : genie001 (grosse blind) s'est couché. sur le Flop
+Siège 2 : agkiller69 s'est couché. avant Flop (n'a pas misé)
+Siège 3 : jvgap s'est couché. avant Flop (n'a pas misé)
+Siège 4 : TFC37 (bouton) a remporté (0.12 €)
+Siège 5 : iflo_8 (petite blind) s'est couché. avant Flop
+
+
+
+Main PokerStars No 93113177500 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:29:45 CUST [28/01/2013 11:29:45 ET]
+Table 'Vega VI' 6-max Siège #5 est au bouton.
+Siège 1 : genie001 (2 € en jetons) 
+Siège 2 : agkiller69 (2.05 € en jetons) 
+Siège 3 : jvgap (2.11 € en jetons) 
+Siège 4 : TFC37 (1.84 € en jetons) 
+Siège 5 : iflo_8 (2.94 € en jetons) 
+pipao1 sera autorisé à jouer après le bouton.
+genie001 : met la petite blind. 0.01 €
+agkiller69 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [Kd Qc]
+jvgap : suit. 0.02 €
+TFC37 : passe. 
+iflo_8 : suit. 0.02 €
+genie001 : suit. 0.01 €
+agkiller69 : parole 
+*** FLOP *** [7h Ac 2d]
+genie001 : mise. 0.02 €
+agkiller69 : passe. 
+jvgap : suit. 0.02 €
+iflo_8 : suit. 0.02 €
+*** TOURNANT *** [7h Ac 2d] [9s]
+genie001 : parole 
+jvgap : parole 
+iflo_8 : parole 
+*** RIVIÈRE *** [7h Ac 2d 9s] [4d]
+genie001 : mise. 0.02 €
+jvgap : passe. 
+iflo_8 : suit. 0.02 €
+*** ABATTAGE ***
+genie001 : montre [7s Js] (une paire de Sept)
+iflo_8 : cache la main perdante. 
+genie001 a remporté 0.17 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.18 € | Commission 0.01 € 
+Tableau [7h Ac 2d 9s 4d]
+Siège 1 : genie001 (petite blind) a montré [7s Js] et a gagné (0.17 €) avec une paire de Sept
+Siège 2 : agkiller69 (grosse blind) s'est couché. sur le Flop
+Siège 3 : jvgap s'est couché. sur le Rivière
+Siège 4 : TFC37 s'est couché. avant Flop (n'a pas misé)
+Siège 5 : iflo_8 (bouton) a caché la main perdante. [Kd Qc]
+
+
+
+Main PokerStars No 93113264901 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:31:27 CUST [28/01/2013 11:31:27 ET]
+Table 'Vega VI' 6-max Siège #1 est au bouton.
+Siège 1 : genie001 (2.11 € en jetons) 
+Siège 2 : agkiller69 (2.03 € en jetons) 
+Siège 3 : jvgap (2.07 € en jetons) 
+Siège 4 : TFC37 (1.84 € en jetons) 
+Siège 5 : iflo_8 (2.88 € en jetons) 
+agkiller69 : met la petite blind. 0.01 €
+jvgap : met la grosse blind. 0.02 €
+pipao1 : ne joue pas. 
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [4d 8d]
+TFC37 : passe. 
+iflo_8 : passe. 
+genie001 : suit. 0.02 €
+agkiller69 : passe. 
+jvgap : parole 
+*** FLOP *** [9d 2c Td]
+jvgap : parole 
+genie001 : parole 
+*** TOURNANT *** [9d 2c Td] [Qc]
+jvgap : mise. 0.04 €
+genie001 : suit. 0.04 €
+*** RIVIÈRE *** [9d 2c Td Qc] [Ks]
+jvgap : parole 
+genie001 : parole 
+*** ABATTAGE ***
+jvgap : montre [Qs 6h] (une paire de Dames)
+genie001 : cache la main perdante. 
+jvgap a remporté 0.12 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.13 € | Commission 0.01 € 
+Tableau [9d 2c Td Qc Ks]
+Siège 1 : genie001 (bouton) a caché la main perdante. [3c 2h]
+Siège 2 : agkiller69 (petite blind) s'est couché. avant Flop
+Siège 3 : jvgap (grosse blind) a montré [Qs 6h] et a gagné (0.12 €) avec une paire de Dames
+Siège 4 : TFC37 s'est couché. avant Flop (n'a pas misé)
+Siège 5 : iflo_8 s'est couché. avant Flop (n'a pas misé)
+
+
+
+Main PokerStars No 93113322260 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:32:34 CUST [28/01/2013 11:32:34 ET]
+Table 'Vega VI' 6-max Siège #2 est au bouton.
+Siège 1 : genie001 (2.05 € en jetons) 
+Siège 2 : agkiller69 (2.02 € en jetons) 
+Siège 3 : jvgap (2.13 € en jetons) 
+Siège 4 : TFC37 (1.84 € en jetons) 
+Siège 5 : iflo_8 (2.88 € en jetons) 
+jvgap : met la petite blind. 0.01 €
+TFC37 : met la grosse blind. 0.02 €
+pipao1 : ne joue pas. 
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [7s 5h]
+iflo_8 : passe. 
+genie001 : passe. 
+agkiller69 : relance. 0.04 € à 0.06 €
+jvgap : suit. 0.05 €
+TFC37 : passe. 
+*** FLOP *** [3c 4s 9c]
+jvgap : parole 
+agkiller69 : parole 
+*** TOURNANT *** [3c 4s 9c] [Jd]
+jvgap : parole 
+agkiller69 : parole 
+*** RIVIÈRE *** [3c 4s 9c Jd] [Kc]
+jvgap : parole 
+agkiller69 : parole 
+*** ABATTAGE ***
+jvgap : montre [Ad 8d] (Hauteur As)
+agkiller69 : montre [3h Ah] (une paire de Trois)
+agkiller69 a remporté 0.13 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.14 € | Commission 0.01 € 
+Tableau [3c 4s 9c Jd Kc]
+Siège 1 : genie001 s'est couché. avant Flop (n'a pas misé)
+Siège 2 : agkiller69 (bouton) a montré [3h Ah] et a gagné (0.13 €) avec une paire de Trois
+Siège 3 : jvgap (petite blind) a montré [Ad 8d] et a perdu avec Hauteur As
+Siège 4 : TFC37 (grosse blind) s'est couché. avant Flop
+Siège 5 : iflo_8 s'est couché. avant Flop (n'a pas misé)
+
+
+
+Main PokerStars No 93113365045 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:33:24 CUST [28/01/2013 11:33:24 ET]
+Table 'Vega VI' 6-max Siège #3 est au bouton.
+Siège 1 : genie001 (2.05 € en jetons) 
+Siège 2 : agkiller69 (2.09 € en jetons) 
+Siège 3 : jvgap (2.07 € en jetons) 
+Siège 4 : TFC37 (1.82 € en jetons) 
+Siège 5 : iflo_8 (2.88 € en jetons) 
+TFC37 : met la petite blind. 0.01 €
+iflo_8 : met la grosse blind. 0.02 €
+pipao1 : ne joue pas. 
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [Ts 3s]
+genie001 : passe. 
+agkiller69 : passe. 
+jvgap : passe. 
+TFC37 : suit. 0.01 €
+iflo_8 : parole 
+*** FLOP *** [5d 9c 2s]
+TFC37 : parole 
+iflo_8 : parole 
+*** TOURNANT *** [5d 9c 2s] [Kc]
+TFC37 : parole 
+iflo_8 : parole 
+*** RIVIÈRE *** [5d 9c 2s Kc] [Ks]
+TFC37 : parole 
+iflo_8 : parole 
+*** ABATTAGE ***
+TFC37 : montre [Qs 6c] (une paire de Rois)
+iflo_8 : cache la main perdante. 
+TFC37 a remporté 0.04 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.04 € | Commission 0 € 
+Tableau [5d 9c 2s Kc Ks]
+Siège 1 : genie001 s'est couché. avant Flop (n'a pas misé)
+Siège 2 : agkiller69 s'est couché. avant Flop (n'a pas misé)
+Siège 3 : jvgap (bouton) s'est couché. avant Flop (n'a pas misé)
+Siège 4 : TFC37 (petite blind) a montré [Qs 6c] et a gagné (0.04 €) avec une paire de Rois
+Siège 5 : iflo_8 (grosse blind) a caché la main perdante. [Ts 3s]
+
+
+
+Main PokerStars No 93113410851 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:34:17 CUST [28/01/2013 11:34:17 ET]
+Table 'Vega VI' 6-max Siège #4 est au bouton.
+Siège 1 : genie001 (2.05 € en jetons) 
+Siège 2 : agkiller69 (2.09 € en jetons) 
+Siège 3 : jvgap (2.07 € en jetons) 
+Siège 4 : TFC37 (1.84 € en jetons) 
+Siège 5 : iflo_8 (2.86 € en jetons) 
+Siège 6 : pipao1 (2.08 € en jetons) 
+iflo_8 : met la petite blind. 0.01 €
+pipao1 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [7s 7h]
+genie001 : suit. 0.02 €
+agkiller69 : passe. 
+jvgap : passe. 
+TFC37 a dépassé le temps imparti.
+TFC37 : passe. 
+iflo_8 : suit. 0.01 €
+pipao1 : parole 
+*** FLOP *** [6h 5h Ac]
+iflo_8 : parole 
+pipao1 : parole 
+genie001 : mise. 0.04 €
+iflo_8 : passe. 
+pipao1 : passe. 
+Personne n'a suivi. (0.04 €) sont retournés à genie001.
+genie001 a remporté 0.06 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.06 € | Commission 0 € 
+Tableau [6h 5h Ac]
+Siège 1 : genie001 a remporté (0.06 €)
+Siège 2 : agkiller69 s'est couché. avant Flop (n'a pas misé)
+Siège 3 : jvgap s'est couché. avant Flop (n'a pas misé)
+Siège 4 : TFC37 (bouton) s'est couché. avant Flop (n'a pas misé)
+Siège 5 : iflo_8 (petite blind) s'est couché. sur le Flop
+Siège 6 : pipao1 (grosse blind) s'est couché. sur le Flop
+
+
+
+Main PokerStars No 93113460830 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:35:15 CUST [28/01/2013 11:35:15 ET]
+Table 'Vega VI' 6-max Siège #5 est au bouton.
+Siège 1 : genie001 (2.09 € en jetons) 
+Siège 2 : agkiller69 (2.09 € en jetons) 
+Siège 3 : jvgap (2.07 € en jetons) 
+Siège 5 : iflo_8 (2.84 € en jetons) 
+Siège 6 : pipao1 (2.06 € en jetons) 
+pipao1 : met la petite blind. 0.01 €
+genie001 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [6s Kd]
+agkiller69 : passe. 
+jvgap : relance. 0.04 € à 0.06 €
+iflo_8 : passe. 
+pipao1 : passe. 
+genie001 : suit. 0.04 €
+*** FLOP *** [Jd 5c 2s]
+genie001 : parole 
+jvgap : parole 
+*** TOURNANT *** [Jd 5c 2s] [6h]
+genie001 : mise. 0.08 €
+jvgap : suit. 0.08 €
+*** RIVIÈRE *** [Jd 5c 2s 6h] [Jh]
+genie001 : mise. 0.14 €
+jvgap : suit. 0.14 €
+*** ABATTAGE ***
+genie001 : montre [7s Js] (un brelan de Valets)
+jvgap : cache la main perdante. 
+genie001 a remporté 0.54 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.57 € | Commission 0.03 € 
+Tableau [Jd 5c 2s 6h Jh]
+Siège 1 : genie001 (grosse blind) a montré [7s Js] et a gagné (0.54 €) avec un brelan de Valets
+Siège 2 : agkiller69 s'est couché. avant Flop (n'a pas misé)
+Siège 3 : jvgap a caché la main perdante. [Ac 6c]
+Siège 5 : iflo_8 (bouton) s'est couché. avant Flop (n'a pas misé)
+Siège 6 : pipao1 (petite blind) s'est couché. avant Flop
+
+
+
+Main PokerStars No 93113511441 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:36:14 CUST [28/01/2013 11:36:14 ET]
+Table 'Vega VI' 6-max Siège #6 est au bouton.
+Siège 1 : genie001 (2.35 € en jetons) 
+Siège 2 : agkiller69 (2.09 € en jetons) 
+Siège 3 : jvgap (1.79 € en jetons) 
+Siège 4 : TFC37 (1.84 € en jetons) 
+Siège 5 : iflo_8 (2.84 € en jetons) 
+Siège 6 : pipao1 (2.05 € en jetons) 
+genie001 : met la petite blind. 0.01 €
+agkiller69 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [Qc 5c]
+jvgap : passe. 
+TFC37 : passe. 
+iflo_8 : suit. 0.02 €
+pipao1 : passe. 
+genie001 : suit. 0.01 €
+agkiller69 : parole 
+*** FLOP *** [5h 9d 3s]
+genie001 : parole 
+agkiller69 : parole 
+iflo_8 : parole 
+*** TOURNANT *** [5h 9d 3s] [3d]
+genie001 : parole 
+agkiller69 : parole 
+iflo_8 : parole 
+*** RIVIÈRE *** [5h 9d 3s 3d] [Ts]
+genie001 : mise. 0.02 €
+agkiller69 : passe. 
+iflo_8 : suit. 0.02 €
+*** ABATTAGE ***
+genie001 : montre [Jc Td] (deux paires, Dix et Trois)
+iflo_8 : cache la main perdante. 
+genie001 a remporté 0.09 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.10 € | Commission 0.01 € 
+Tableau [5h 9d 3s 3d Ts]
+Siège 1 : genie001 (petite blind) a montré [Jc Td] et a gagné (0.09 €) avec deux paires, Dix et Trois
+Siège 2 : agkiller69 (grosse blind) s'est couché. sur le Rivière
+Siège 3 : jvgap s'est couché. avant Flop (n'a pas misé)
+Siège 4 : TFC37 s'est couché. avant Flop (n'a pas misé)
+Siège 5 : iflo_8 a caché la main perdante. [Qc 5c]
+Siège 6 : pipao1 (bouton) s'est couché. avant Flop (n'a pas misé)
+
+
+
+Main PokerStars No 93113563534 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:37:14 CUST [28/01/2013 11:37:14 ET]
+Table 'Vega VI' 6-max Siège #1 est au bouton.
+Siège 1 : genie001 (2.40 € en jetons) 
+Siège 2 : agkiller69 (2.07 € en jetons) 
+Siège 3 : jvgap (1.79 € en jetons) 
+Siège 4 : TFC37 (1.84 € en jetons) 
+Siège 5 : iflo_8 (2.80 € en jetons) 
+Siège 6 : pipao1 (2.05 € en jetons) 
+agkiller69 : met la petite blind. 0.01 €
+jvgap : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [Qh 5c]
+TFC37 : passe. 
+iflo_8 : passe. 
+pipao1 : passe. 
+genie001 : suit. 0.02 €
+agkiller69 : passe. 
+jvgap : relance. 0.06 € à 0.08 €
+genie001 : suit. 0.06 €
+*** FLOP *** [Ts 6h Th]
+jvgap : mise. 0.10 €
+genie001 : passe. 
+Personne n'a suivi. (0.10 €) sont retournés à jvgap.
+jvgap a remporté 0.16 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.17 € | Commission 0.01 € 
+Tableau [Ts 6h Th]
+Siège 1 : genie001 (bouton) s'est couché. sur le Flop
+Siège 2 : agkiller69 (petite blind) s'est couché. avant Flop
+Siège 3 : jvgap (grosse blind) a remporté (0.16 €)
+Siège 4 : TFC37 s'est couché. avant Flop (n'a pas misé)
+Siège 5 : iflo_8 s'est couché. avant Flop (n'a pas misé)
+Siège 6 : pipao1 s'est couché. avant Flop (n'a pas misé)
+
+
+
+Main PokerStars No 93113593372 :  Hold'em No Limit (0.01 €/0.02 € EUR) - 28/01/2013 17:37:48 CUST [28/01/2013 11:37:48 ET]
+Table 'Vega VI' 6-max Siège #2 est au bouton.
+Siège 1 : genie001 (2.32 € en jetons) 
+Siège 2 : agkiller69 (2.06 € en jetons) 
+Siège 3 : jvgap (1.87 € en jetons) 
+Siège 4 : TFC37 (1.84 € en jetons) 
+Siège 5 : iflo_8 (2.80 € en jetons) 
+Siège 6 : pipao1 (2.05 € en jetons) 
+jvgap : met la petite blind. 0.01 €
+TFC37 : met la grosse blind. 0.02 €
+*** CARTES FERMÉES ***
+Distribuées iflo_8 [9d As]
+iflo_8 : suit. 0.02 €
+pipao1 a dépassé le temps imparti.
+pipao1 : passe. 
+genie001 : passe. 
+agkiller69 : passe. 
+jvgap : suit. 0.01 €
+TFC37 : parole 
+*** FLOP *** [9s 2h 2c]
+jvgap : parole 
+TFC37 : parole 
+iflo_8 : mise. 0.02 €
+jvgap : suit. 0.02 €
+TFC37 : passe. 
+*** TOURNANT *** [9s 2h 2c] [Qd]
+jvgap a dépassé le temps imparti.
+jvgap : parole 
+iflo_8 : mise. 0.04 €
+jvgap : passe. 
+Personne n'a suivi. (0.04 €) sont retournés à iflo_8.
+iflo_8 a remporté 0.09 €  lors du pot .
+*** SYNTHÈSE ***
+Pot total 0.10 € | Commission 0.01 € 
+Tableau [9s 2h 2c Qd]
+Siège 1 : genie001 s'est couché. avant Flop (n'a pas misé)
+Siège 2 : agkiller69 (bouton) s'est couché. avant Flop (n'a pas misé)
+Siège 3 : jvgap (petite blind) s'est couché. sur le Tournant
+Siège 4 : TFC37 (grosse blind) s'est couché. sur le Flop
+Siège 5 : iflo_8 a remporté (0.09 €)
+Siège 6 : pipao1 s'est couché. avant Flop (n'a pas misé)
+
+
+
