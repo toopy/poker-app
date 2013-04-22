@@ -363,8 +363,8 @@ Pot total 0.39 € | Commission 0.02 €
 Tableau [4s 9d 7s 6s Qh]
 Siège 1 : genie001 (bouton) s'est couché. sur le Tournant
 Siège 2 : agkiller69 (petite blind) s'est couché. avant Flop
-Siège 3 : jvgap (grosse blind) a remporté (0.37 €)
-Siège 4 : TFC37 s'est couché. sur le Rivière
+Siège 3 : jvgap (grosse blind) a montré [Ad 8d] et a perdu avec Hauteur As
+Siège 4 : TFC37 a remporté (0.37 €)
 Siège 5 : iflo_8 s'est couché. avant Flop (n'a pas misé)
 Siège 6 : pipao1 s'est couché. avant Flop (n'a pas misé)
 
