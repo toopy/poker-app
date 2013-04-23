@@ -190,3 +190,37 @@ class History(object):
     def get_hands(self, **kw):
         q = self.session.query(Hand)
         return q.filter_by(**kw)
+
+    def get_stats(self, player):
+        stats = {
+            'hands': 0,
+            'wins': 0,
+            'bigs': 0,
+            'preflops': 0,
+            'turns': 0,
+            'rivers': 0, 
+            'ends': 0, 
+        }
+        for hand in self.get_hands(player=player):
+            stats['hands']    += 1
+            stats['wins']     += 1 if hand.win in [WIN_WIN, WIN_WIN_SHOW] else 0
+            stats['bigs']     += 1 if hand.info == INFO_BIG_BLIND else 0
+            stats['preflops'] += 1 if hand.when >= WHEN_PREFLOP   else 0
+            stats['turns']    += 1 if hand.when >= WHEN_TURN      else 0
+            stats['rivers']   += 1 if hand.when >= WHEN_RIVER     else 0
+            stats['ends']     += 1 if hand.when == WHEN_END       else 0
+        # additionnal stats
+        # wins / hand
+        stats['wins_hand'] = round(float(stats['wins'])*100/stats['hands'])
+        # wins / preflop
+        stats['wins_preflop'] = round(float(stats['wins'])*100/stats['preflops'])
+        # wins / turn
+        stats['wins_turn'] = round(float(stats['wins'])*100/stats['turns'])
+        # wins / river
+        stats['wins_river'] = round(float(stats['wins'])*100/stats['rivers'])
+        # wins / end
+        stats['wins_end'] = round(float(stats['wins'])*100/stats['ends'])
+        # bigs / preflop
+        stats['bigs_preflop'] = round(float(stats['bigs'])*100/stats['preflops'])
+        # let's rock
+        return stats

@@ -437,3 +437,84 @@ class TestHistoryDb(unittest.TestCase):
             self.assertEqual(hand.when, e['when'])
             self.assertEqual(hand.win, e['win'])
 
+    def test_stats(self):
+        self.maxDiff = None
+        # load data
+        h = history.History()
+        h.update()
+        # check stats
+        self.assertEquals(h.get_stats('genie001'), {
+            'bigs': 4,
+            'ends': 5,
+            'hands': 21,
+            'preflops': 18,
+            'rivers': 8,
+            'turns': 12,
+            'wins': 4,
+            'wins_end': 80.0,
+            'wins_hand': 19.0,
+            'wins_preflop': 22.0,
+            'wins_river': 50.0,
+            'wins_turn': 33.0,
+            'bigs_preflop': 22.0,
+        })
+        self.assertEquals(h.get_stats('agkiller69'), {
+            'bigs': 4,
+            'ends': 2,
+            'hands': 21,
+            'preflops': 13,
+            'rivers': 4,
+            'turns': 5,
+            'wins': 2,
+            'wins_end': 100.0,
+            'wins_hand': 10.0,
+            'wins_preflop': 15.0,
+            'wins_river': 50.0,
+            'wins_turn': 40.0,
+            'bigs_preflop': 31.0,
+        })
+        self.assertEquals(h.get_stats('TFC37'), {
+            'bigs': 4,
+            'ends': 7,
+            'hands': 20,
+            'preflops': 12,
+            'rivers': 8,
+            'turns': 8,
+            'wins': 6,
+            'wins_end': 86.0,
+            'wins_hand': 30.0,
+            'wins_preflop': 50.0,
+            'wins_river': 75.0,
+            'wins_turn': 75.0,
+            'bigs_preflop': 33.0,
+        })
+        self.assertEquals(h.get_stats('iflo_8'), {
+            'bigs': 3,
+            'ends': 8,
+            'hands': 21,
+            'preflops': 14,
+            'rivers': 9,
+            'turns': 10,
+            'wins': 5,
+            'wins_end': 63.0,
+            'wins_hand': 24.0,
+            'wins_preflop': 36.0,
+            'wins_river': 56.0,
+            'wins_turn': 50.0,
+            'bigs_preflop': 21.0,
+        })
+        self.assertEquals(h.get_stats('pipao1'), {
+            'bigs': 3,
+            'ends': 2,
+            'hands': 16,
+            'preflops': 9,
+            'rivers': 4,
+            'turns': 4,
+            'wins': 2,
+            'wins_end': 100.0,
+            'wins_hand': 13.0,
+            'wins_preflop': 22.0,
+            'wins_river': 50.0,
+            'wins_turn': 50.0,
+            'bigs_preflop': 33.0,
+        })
