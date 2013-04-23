@@ -120,7 +120,8 @@ class TestHistoryPart(unittest.TestCase):
 
     def test_parts_count(self):
         h = history.History()
-        count = sum([len([l for l in h.parse_part(p)]) for p in h.get_parts()])
+        count = sum([len(filter(None, [l for l in h.parse_part(p)]))
+                     for p in h.get_parts()])
         self.assertEqual(count, 112)
 
     def test_part_0(self):
