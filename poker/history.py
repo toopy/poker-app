@@ -162,7 +162,7 @@ class History(object):
                 or q.filter_by(main=main).count():
                     # TODO log something if not main
                     # quit
-                    break
+                    yield None
             # update synth flag
             synth = synth or l.startswith('*** SYNTHESE ***')
             if not synth:
@@ -180,10 +180,20 @@ class History(object):
             yield hand
 
     def update(self, path='./data/history.txt'):
+        # quit
+        quit = False
         for part in self.get_parts(path=path):
             for hand in self.parse_part(part):
+                # update quit flag
+                quit |= hand is None
+                # quit cascade
+                if quit:
+                    break
                 # store hand
                 self.session.add(Hand(**hand))
+            # quit cascade - continue
+            if quit:
+                break
         # commit - TODO may be catch double
         self.session.commit()
 
