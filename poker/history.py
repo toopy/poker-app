@@ -203,7 +203,8 @@ class History(object):
         }
         for hand in self.get_hands(player=player):
             stats['hands']    += 1
-            stats['wins']     += 1 if hand.win in [WIN_WIN, WIN_WIN_SHOW] else 0
+            stats['wins']     += 1 if hand.win in [WIN_WIN, WIN_WIN_SHOW]\
+                                   else 0
             stats['bigs']     += 1 if hand.info == INFO_BIG_BLIND else 0
             stats['preflops'] += 1 if hand.when >= WHEN_PREFLOP   else 0
             stats['turns']    += 1 if hand.when >= WHEN_TURN      else 0
