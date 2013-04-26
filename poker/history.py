@@ -11,6 +11,8 @@ from sqlalchemy.ext import declarative
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.schema import UniqueConstraint
 
+from poker import table
+
 
 Base = declarative.declarative_base()
 Session = sessionmaker()
@@ -106,22 +108,24 @@ R_WHEN = [
 
 class History(object):
 
-    def __init__(self, db_conn='sqlite:///:memory:'):
-        self.session = self.get_session(db_conn=db_conn)
+    def __init__(self, conn='sqlite:///:memory:',
+                 path='./data/history.txt'):
+        self.session = self.get_session(conn=conn)
+        self.path = path
 
-    def get_session(self, db_conn='sqlite:///:memory:'):
+    def get_session(self, conn='sqlite:///:memory:'):
         # create db
-        engine = create_engine(db_conn)
+        engine = create_engine(conn)
         Base.metadata.create_all(engine)
         # init session
         Session.configure(bind=engine)
         return Session()
 
-    def get_parts(self, path='./data/history.txt'):
+    def get_parts(self):
         step = None
         main = None
         lines = list()
-        with codecs.open(path, 'r', encoding='utf-8') as f:
+        with codecs.open(self.path, 'r', encoding='utf-8') as f:
             for l in f.readlines():
                 l = unicodedata.normalize('NFD', l).encode('ascii', 'ignore')
                 lines.append(l.strip())
@@ -172,25 +176,25 @@ class History(object):
             if not _re.match(l):
                 continue
             # manage synth lines
-            hand = self.parse_line(l)
-            if not hand:
+            _hand = self.parse_line(l)
+            if not _hand:
                 raise Exception('Not matched: `%s`' % l)
             # add main
-            hand['main'] = main
-            yield hand
+            _hand['main'] = main
+            yield _hand
 
-    def update(self, path='./data/history.txt'):
+    def update(self):
         # quit
         quit = False
-        for part in self.get_parts(path=path):
-            for hand in self.parse_part(part):
+        for part in self.get_parts():
+            for h in self.parse_part(part):
                 # update quit flag
-                quit |= hand is None
+                quit |= h is None
                 # quit cascade
                 if quit:
                     break
                 # store hand
-                self.session.add(Hand(**hand))
+                self.session.add(Hand(**h))
             # quit cascade - continue
             if quit:
                 break
@@ -201,37 +205,48 @@ class History(object):
         q = self.session.query(Hand)
         return q.filter_by(**kw)
 
-    def get_stats(self, player):
-        stats = {
-            'hands': 0,
-            'wins': 0,
-            'bigs': 0,
-            'preflops': 0,
-            'turns': 0,
-            'rivers': 0, 
-            'ends': 0, 
-        }
-        for hand in self.get_hands(player=player):
-            stats['hands']    += 1
-            stats['wins']     += 1 if hand.win in [WIN_WIN, WIN_WIN_SHOW]\
+    def get_stats(self, player, step=None):
+        hands = 0
+        wins = 0
+        bigs = 0
+        preflops = 0
+        flops = 0
+        turns = 0
+        rivers = 0 
+        ends = 0
+        for h in self.get_hands(player=player):
+            hands    += 1
+            wins     += 1 if h.win in [WIN_WIN, WIN_WIN_SHOW]\
                                    else 0
-            stats['bigs']     += 1 if hand.info == INFO_BIG_BLIND else 0
-            stats['preflops'] += 1 if hand.when >= WHEN_PREFLOP   else 0
-            stats['turns']    += 1 if hand.when >= WHEN_TURN      else 0
-            stats['rivers']   += 1 if hand.when >= WHEN_RIVER     else 0
-            stats['ends']     += 1 if hand.when == WHEN_END       else 0
-        # additionnal stats
+            bigs     += 1 if h.info == INFO_BIG_BLIND\
+                          and h.when >= WHEN_FLOP  else 0
+            preflops += 1 if h.when >= WHEN_PREFLOP   else 0
+            flops    += 1 if h.when >= WHEN_FLOP      else 0
+            turns    += 1 if h.when >= WHEN_TURN      else 0
+            rivers   += 1 if h.when >= WHEN_RIVER     else 0
+            ends     += 1 if h.when == WHEN_END       else 0
+        # init res
+        stats = {}
         # wins / hand
-        stats['wins_hand'] = round(float(stats['wins'])*100/stats['hands'])
+        stats['hands'] = hands
+        stats['win'] = 0 if not hands\
+                         else round(float(wins)*100/hands)
         # wins / preflop
-        stats['wins_preflop'] = round(float(stats['wins'])*100/stats['preflops'])
+        if not step or step == table.PREFLOP:
+            stats['preflop'] = 0 if not preflops\
+                                 else round(float(wins)*100/preflops)
+            # stats['big'] = round(float(bigs)*100/flops)
+        # wins / preflop
+        if not step or step == table.FLOP:
+            stats['flop'] = 0 if not flops\
+                              else round(float(wins)*100/flops)
         # wins / turn
-        stats['wins_turn'] = round(float(stats['wins'])*100/stats['turns'])
+        if not step or step == table.TURN:
+            stats['turn'] = 0 if not turns\
+                              else round(float(wins)*100/turns)
         # wins / river
-        stats['wins_river'] = round(float(stats['wins'])*100/stats['rivers'])
-        # wins / end
-        stats['wins_end'] = round(float(stats['wins'])*100/stats['ends'])
-        # bigs / preflop
-        stats['bigs_preflop'] = round(float(stats['bigs'])*100/stats['preflops'])
+        if not step or step == table.RIVER:
+            stats['river'] = 0 if not rivers\
+                                else round(float(wins)*100/rivers)
         # let's rock
         return stats

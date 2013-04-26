@@ -11,11 +11,11 @@ logger = logging.getLogger(__name__)
 ] = range(5)
 
 NAMES = [
-    'NULL',
-    'PREFLOP',
-    'FLOP',
-    'TURN',
-    'RIVER'
+    'null',
+    'preflop',
+    'flop',
+    'turn',
+    'river'
 ]
 
 class Table(object):
@@ -23,7 +23,7 @@ class Table(object):
     def __init__(self, board):
         self.board = board
 
-    def get_turn(self):
+    def get_step(self):
         nb_cards = len(self.board)
         if nb_cards == 0:
             return PREFLOP
@@ -37,5 +37,5 @@ class Table(object):
         return NULL
 
     @staticmethod
-    def get_name(turn):
-        return '' if not turn else NAMES[turn]
+    def get_name(step):
+        return '' if not step else NAMES[step]

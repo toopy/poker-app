@@ -77,22 +77,22 @@ class HandBase(object):
 
 
 PREFLOP_NAMES = [
-    'ZERO',
-    '9__2',
-    '9_MORE',
-    'T9__32',
-    'T_MORE',
-    'J_MORE',
-    'Q_MORE',
-    'AQS__QTS',
-    'T9S__32S',
+    '',
+    '9 > 2',
+    '9 more',
+    'T9 > 32',
+    'T more',
+    'J more',
+    'Q more',
+    'AQS > QTS',
+    'T9S > 32S',
     'JT',
     'TT',
-    'KQ_QJ',
+    'KQ QJ',
     'JJ',
-    'KK_QQ',
+    'KK QQ',
     'AK',
-    'KQS_QJS_JTS',
+    'KQS QJS JTS',
     'AA',
     'AKS',
 ]
@@ -323,17 +323,17 @@ class HandPreflop(HandBase):
 ] = range(11)
 
 NAMES = [
-    'ZERO',
-    'HIGH_CARD',
-    'ONE_PAIR',
-    'TWO_PAIRS',
-    'THREE_OF_A_KIND',
-    'STRAIGHT',
-    'FLUSH',
-    'FULL_HOUSE',
-    'FOUR_OF_A_KIND',
-    'STRAIGHT_FLUSH',
-    'ROYAL_FLUSH',
+    'zero',
+    'high card',
+    'one pair',
+    'two pairs',
+    'three of a kind',
+    'straight',
+    'flush',
+    'full house',
+    'four of a kind',
+    'straight flush',
+    'royal flush',
 ]
 
 

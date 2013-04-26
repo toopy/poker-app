@@ -28,14 +28,14 @@ from west.socket.twisted.factory import SocketFactory
 
 from poker import hand
 from poker import table
-from poker import odds
+from poker import history
 
 
 NULL = [
     None,
-    "nn",
-    "_",
-    "n",
+    'nn',
+    '_',
+    'n',
 ]
 
 
@@ -44,7 +44,7 @@ class PokerDico(Dictionary):
     def __init__(self):
         Dictionary.__init__(self)
         # load poker values
-        p_path = self.get_path("poker")
+        p_path = self.get_path('poker')
         self.pokervalues = []
         if os.path.exists(p_path):
             with open(p_path) as f:
@@ -53,7 +53,7 @@ class PokerDico(Dictionary):
     def find(self, box):
         val, result, neigh, dists = Dictionary.find(self, box) 
         # get corresponding poker value
-        val = None if not val < len(self.pokervalues)\
+        val = None if val is None or not val < len(self.pokervalues)\
                    else self.pokervalues[int(val)]
         # TODO add some debug
         # return expected values
@@ -68,8 +68,8 @@ class PokerDico(Dictionary):
 
     def save(self):
         Dictionary.save(self)
-        with open(self.get_path("poker"), "w") as f:
-            f.write("\n".join(self.pokervalues))
+        with open(self.get_path('poker'), 'w') as f:
+            f.write('\n'.join(self.pokervalues))
 
 
 class Pokerbot(Robot):
@@ -86,7 +86,7 @@ class Pokerbot(Robot):
 
     def find_contours(self):
         for k, v in self._zones.iteritems():
-            x, y, w, h = [abs(int(v[i])) for i in ["x", "y", "w", "h"]]
+            x, y, w, h = [abs(int(v[i])) for i in ['x', 'y', 'w', 'h']]
             yield (1920-x, y, w, h)
 
     def get_box(self, pos, size):
@@ -101,50 +101,6 @@ class Pokerbot(Robot):
 
     def preview(self): 
         Robot.preview(self)
-
-
-ROOT = os.path.join("poker", "static", "poker", "resources", "img", "table")
-STATIC = os.path.join("/fanstatic", "poker", "img", "table")
-
-IMG_LIST = [
-    "table",
-    "player_1_card_1",
-    "player_1_card_2",
-    "player_1_name",
-    "player_2_cards",
-    "player_2_name",
-    "player_3_cards",
-    "player_3_name",
-    "player_4_cards",
-    "player_4_name",
-    "player_5_cards",
-    "player_5_name",
-    "player_6_cards",
-    "player_6_name",
-    "table_card_1",
-    "table_card_2",
-    "table_card_3",
-    "table_card_4",
-    "table_card_5",
-]
-
-CARD_KEYS = [
-    "player_1_card_1",
-    "player_1_card_2",
-    "table_card_1",
-    "table_card_2",
-    "table_card_3",
-    "table_card_4",
-    "table_card_5",
-]
-
-CARD_OTHERS = [
-    "player_2_cards",
-    "player_3_cards",
-    "player_4_cards",
-    "player_5_cards",
-    "player_6_cards",
-]
 
 
 class Zone(object):
@@ -162,7 +118,51 @@ class Zone(object):
         return S(self.w, self.h)
 
     def __str__(self):
-        return "(%s,%s) (%s,%s)" % (self.x, self.y, self.w, self.h)
+        return '(%s,%s) (%s,%s)' % (self.x, self.y, self.w, self.h)
+
+
+ROOT = os.path.join('poker', 'static', 'poker', 'resources', 'img', 'table')
+STATIC = os.path.join('/fanstatic', 'poker', 'img', 'table')
+
+IMG_LIST = [
+    'table',
+    'player_1_card_1',
+    'player_1_card_2',
+    'player_1_name',
+    'player_2_cards',
+    'player_2_name',
+    'player_3_cards',
+    'player_3_name',
+    'player_4_cards',
+    'player_4_name',
+    'player_5_cards',
+    'player_5_name',
+    'player_6_cards',
+    'player_6_name',
+    'table_card_1',
+    'table_card_2',
+    'table_card_3',
+    'table_card_4',
+    'table_card_5',
+]
+
+CARD_KEYS = [
+    'player_1_card_1',
+    'player_1_card_2',
+    'table_card_1',
+    'table_card_2',
+    'table_card_3',
+    'table_card_4',
+    'table_card_5',
+]
+
+CARD_OTHERS = [
+    'player_2_cards',
+    'player_3_cards',
+    'player_4_cards',
+    'player_5_cards',
+    'player_6_cards',
+]
 
 
 class PokerSocketFactory(SocketFactory):
@@ -177,12 +177,17 @@ class PreviewTableFactory(SocketFactory):
         SocketFactory.__init__(self, *args, **kwargs)
         self.__config = Config()
         self.__dico = PokerDico()
+        self.history = None
         self.robot = None
-        self.infos = None
-        self.stats = None
 
     def start(self):
-        delay = self.get_config("poker.refresh")
+        # init history with config
+        self.history = history.History(
+            conn=self.get_config('poker.conn'),
+            path=self.get_config('poker.history')
+        )
+        # shortcut
+        delay = self.get_config('poker.refresh')
         # not set
         if not delay:
             return
@@ -193,17 +198,20 @@ class PreviewTableFactory(SocketFactory):
             pass
 
     def refresh(self):
+        # update history
+        self.history.update()
+        # update clients
         for c in self.clients:
-            self.message(c, "{}", refresh=True)
+            self.message(c, '{}', refresh=True)
 
     def current_path(self, current, root=None):
         # split current
         current = None if not current\
-                    else current.split("/")[-1].replace(")", "")
+                    else current.split('/')[-1].replace(')', '')
         # return root path
         return os.path.join(root, current) if root else current
 
-    def next_path(self, current=None, root=None, ask="next"):
+    def next_path(self, current=None, root=None, ask='next'):
         # list available files
         files = os.listdir(ROOT)
         files.sort(reverse=True)
@@ -211,9 +219,9 @@ class PreviewTableFactory(SocketFactory):
         current = self.current_path(current)
         # get current pos
         index = 0 if not current in files else files.index(current)
-        if ask == "prev":
+        if ask == 'prev':
             index = len(files) - 1 if index == 0 else index - 1
-        elif ask == "next":
+        elif ask == 'next':
             index = 0 if index == len(files) - 1 else index + 1
         # add static path
         roots = [os.path.join(ROOT, f) for f in files]
@@ -221,8 +229,8 @@ class PreviewTableFactory(SocketFactory):
         return roots[index], statics[index]
 
     def split_zone(self, key):
-        value = self.get_config("poker.zone.%s" % key)
-        return dict(zip(["x", "y", "w", "h"], value.split()))
+        value = self.get_config('poker.zone.%s' % key)
+        return dict(zip(['x', 'y', 'w', 'h'], value.split()))
 
     def get_zones(self):
         return dict([(k, self.split_zone(k)) for k in IMG_LIST])
@@ -232,7 +240,7 @@ class PreviewTableFactory(SocketFactory):
         if not self.robot:
             return
         # keep value
-        self.infos[key] = value
+        # self.infos[key] = value
         # get key zone
         zone = Zone(**self.robot._zones[key])
         # update
@@ -241,7 +249,7 @@ class PreviewTableFactory(SocketFactory):
     def info_(self, key):
         # no robot
         if not self.robot:
-            return ""
+            return ''
         # get key zone
         zone = Zone(**self.robot._zones[key])
         # get value
@@ -258,14 +266,18 @@ class PreviewTableFactory(SocketFactory):
             cards[i] = c
         return cards
 
-    def ev_hand(self, cards, others):
+    def get_eval(self, cards, me, others):
         # prepare pockets for eval
-        pockets = [self.ev_cards(cards[:2])]
+        pockets = [[str(c) for c in self.ev_cards(cards[:2])]]
         pockets += [['__', '__'] for o in others]
+        if not pockets:
+            return None
         # prepare board for eval
-        board = self.ev_cards(cards[2:])
+        board = [str(c) for c in self.ev_cards(cards[2:])]
+        if not board:
+            return None
         # get config iterations parameter
-        iterations = self.get_config("eval.iterations")
+        iterations = self.get_config('eval.iterations')
         iterations = None if not iterations else int(iterations)
         # prepare kwargs
         kwargs = {
@@ -275,49 +287,62 @@ class PreviewTableFactory(SocketFactory):
         }
         if iterations:
             kwargs['iterations'] = iterations
+        # debug
+        logger.debug('k:%s' % kwargs)
         # eval
-        ev = pokereval.PokerEval().poker_eval(**kwargs)
-        return [e['ev'] for e in ev['eval']]
+        try:
+            _eval = pokereval.PokerEval().poker_eval(**kwargs)
+            return  zip([me] + others, [e['ev'] for e in _eval['eval']])
+        except Exception, e:
+            logger.exception(e)
 
-    def get_stats(self):
+    def get_stats(self, infos):
+        # no cards .. do nothin
+        if not [k for k in CARD_KEYS[:2] if infos[k] not in NULL]:
+            return {}
         # compute best hand
-        cards = [self.infos[k] for k in CARD_KEYS\
-                               if self.infos[k] not in NULL]
+        cards = [infos[k] for k in CARD_KEYS\
+                               if infos[k] not in NULL]
         hand_cls = hand.Hand if len(cards) > 2 else hand.HandPreflop
         if len(cards) > 2:
             hands = [hand_cls(*c).get_rank() for c in combinations(cards, r=5)]
-            h = 0 if not hands else max(hands)
+            _hand = 0 if not hands else max(hands)
         else:
-            h = hand_cls(*cards).get_rank()
+            _hand = hand_cls(*cards).get_rank()
         # get current turn
-        board = [self.infos[k] for k in CARD_KEYS[2:]\
-                               if self.infos[k] not in NULL]
+        board = [infos[k] for k in CARD_KEYS[2:]\
+                               if infos[k] not in NULL]
         table_cls = table.Table(board)
-        t = table_cls.get_turn()
+        step = table_cls.get_step()
         # others
-        oth = [self.infos[k.replace("cards", "name")]
-                     for k in CARD_OTHERS if self.infos[k] not in NULL]
+        me  = infos['player_1_name'] 
+        oth = [infos[k.replace('cards', 'name')]
+                     for k in CARD_OTHERS if infos[k] not in NULL]
+        # players
+        players = [me] + filter(None, oth)
         # eval
-        ev = self.ev_hand(cards, oth)
+        _eval = self.get_eval(cards, me, oth)
+        # stats
+        _stats = dict([(p, self.history.get_stats(p, step)) for p in players])
         # res
         stats = {
-            "hand": {'value': h, 'name': hand_cls.get_name(h)},
-            "turn": {'value': t, 'name': table_cls.get_name(t)},
-            "players": [self.infos['player_1_name']] + oth,
-            "eval": ev,
+            'hand': {'value': _hand, 'name': hand_cls.get_name(_hand)},
+            'step': {'value': step, 'name': table_cls.get_name(step)},
+            'players': players,
+            'eval': _eval,
+            'stats': _stats,
         }
-        print "stats:%s" % stats
         return stats
 
     def message(self, client, msg, refresh=False):
         # DEBUG
-        # logger.debug("m:m:%s" % msg)
+        logger.debug('m:%s' % msg)
         # parse msg
         o = json.loads(msg)
-        action = o.get("action")
-        current = o.get("current")
+        action = o.get('action')
+        current = o.get('current')
         # action factory
-        if action in ["next", "prev"] or refresh:
+        if action in ['next', 'prev'] or refresh:
             current, table_img = self.next_path(current=current, ask=action)
             # reset robot
             if self.robot:
@@ -325,36 +350,36 @@ class PreviewTableFactory(SocketFactory):
             self.__config.path = current
             self.robot = Pokerbot(self.__config, self.__dico, self.get_zones())
             # get infos
-            self.infos = self.get_infos()
-            self.stats = self.get_stats()
+            infos = self.get_infos()
+            stats = self.get_stats(infos)
             resp = {
-                "table_img": table_img,
-                "zones": self.robot._zones,
-                "infos": self.infos,
+                'table_img': table_img,
+                'zones': self.robot._zones,
+                'infos': infos,
+                'stats': stats,
             }
-        elif action == "form":
+        elif action == 'form':
             k = o[action]
-            self._info(k, o.get("value", ""))
-            self.stats = self.get_stats() # stats update
+            self._info(k, o.get('value', ''))
             resp = {
-                "msg": "info `%s` updated." % k
+                'msg': 'info `%s` updated.' % k
             }
-        elif action == "preview" and self.robot:
+        elif action == 'preview' and self.robot:
             self.robot.preview()
             resp = {
-                "msg": "previewing ..."
+                'msg': 'previewing ...'
             }
-        elif action == "save" and self.robot:
+        elif action == 'save' and self.robot:
             self.robot.dico.save()
             resp = {
-                "msg": "saved."
+                'msg': 'saved.'
             }
         else:
             resp = {
-                "msg": "unknown action: %s" % action
+                'msg': 'unknown action: %s' % action
             }
         # DEBUG
-        # logger.debug("m:r:%s" % resp)
+        logger.debug('r:%s' % resp)
         # respond
         return self.send(client, json.dumps(resp))
 
