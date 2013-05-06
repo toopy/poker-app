@@ -14,7 +14,7 @@ body {
 
 .show-grid {
     margin-top: 10px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .show-grid [class*="span-grid"] {
@@ -48,6 +48,41 @@ body {
 
 .player-cards {
     margin-top: 14px;
+}
+
+.player_stats div.center-div {
+    width: 128px;
+}
+
+input[type=text] {
+    border: none;
+    box-shadow: none;
+    text-align: center;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+.player_stats input {
+    float: left;
+    width: 16px;
+}
+
+.player_stats input.stats-eval {
+    color: green;
+    width: 24px;
+    
+}
+
+.player_stats input.stats-nows {
+    color: red;
+}
+
+.player_stats input.stats-wins {
+    color: grey;
+}
+
+.player_stats input.stats-hands {
+    color: grey;
 }
 
     </style>
@@ -98,149 +133,150 @@ body {
             </span>
         </div>
 
-        <hr class="table" style="display: none" />
-
         <div class="row show-grid">
             <div class="span10  offset1">
                 <div id="table" class="center-div table" style="display: none"></div>
             </div>
         </div>
 
-        <hr class="player_cards" style="display: none" />
-
-        <div class="row show-grid player_cards" style="display: none">
-            <div class="span1">
-                <div id="player_1_card_1" class="center-div"></div>
-            </div>
-            <div class="span1">
-                <div id="player_1_card_2" class="center-div"></div>
+        <div class="row show-grid table_cards">
+            <div class="span2  offset1">
+                <div id="table_card_1" class="center-div"></div>
+                <input type="text" id="table_card_1_form" class="span2 img_form">
             </div>
             <div class="span2">
-                <div id="player_2_cards" class="center-div player-cards"></div>
+                <div id="table_card_2" class="center-div"></div>
+                <input type="text" id="table_card_2_form" class="span2 img_form">
             </div>
             <div class="span2">
-                <div id="player_3_cards" class="center-div player-cards"></div>
+                <div id="table_card_3" class="center-div"></div>
+                <input type="text" id="table_card_3_form" class="span2 img_form">
             </div>
             <div class="span2">
-                <div id="player_4_cards" class="center-div player-cards"></div>
+                <div id="table_card_4" class="center-div"></div>
+                <input type="text" id="table_card_4_form" class="span2 img_form">
             </div>
             <div class="span2">
-                <div id="player_5_cards" class="center-div player-cards"></div>
-            </div>
-            <div class="span2">
-                <div id="player_6_cards" class="center-div player-cards"></div>
+                <div id="table_card_5" class="center-div"></div>
+                <input type="text" id="table_card_5_form" class="span2 img_form">
             </div>
         </div>
 
-        <div class="row show-grid player_cards" style="display: none">
+        <div class="row show-grid player_cards">
             <div class="span1">
+                <div id="player_1_card_1" class="center-div"></div>
                 <input type="text" id="player_1_card_1_form" class="span1 img_form">
             </div>
             <div class="span1">
+                <div id="player_1_card_2" class="center-div"></div>
                 <input type="text" id="player_1_card_2_form" class="span1 img_form">
             </div>
             <div class="span2">
+                <div id="player_2_cards" class="center-div player-cards"></div>
                 <input type="text" id="player_2_cards_form" class="span2 img_form">
             </div>
             <div class="span2">
+                <div id="player_3_cards" class="center-div player-cards"></div>
                 <input type="text" id="player_3_cards_form" class="span2 img_form">
             </div>
             <div class="span2">
+                <div id="player_4_cards" class="center-div player-cards"></div>
                 <input type="text" id="player_4_cards_form" class="span2 img_form">
             </div>
             <div class="span2">
+                <div id="player_5_cards" class="center-div player-cards"></div>
                 <input type="text" id="player_5_cards_form" class="span2 img_form">
             </div>
             <div class="span2">
+                <div id="player_6_cards" class="center-div player-cards"></div>
                 <input type="text" id="player_6_cards_form" class="span2 img_form">
             </div>
         </div>
 
-        <hr class="player_names" style="display: none" />
-
-        <div class="row show-grid player_names" sytle="display: none">
+        <div class="row show-grid player_names">
             <div class="span2">
                 <div id="player_1_name" class="center-div"></div>
-            </div>
-            <div class="span2">
-                <div id="player_2_name" class="center-div"></div>
-            </div>
-            <div class="span2">
-                <div id="player_3_name" class="center-div"></div>
-            </div>
-            <div class="span2">
-                <div id="player_4_name" class="center-div"></div>
-            </div>
-            <div class="span2">
-                <div id="player_5_name" class="center-div"></div>
-            </div>
-            <div class="span2">
-                <div id="player_6_name" class="center-div"></div>
-            </div>
-        </div>
-
-        <div class="row show-grid player_names" style="display: none">
-            <div class="span2">
                 <input type="text" id="player_1_name_form" class="span2 img_form">
             </div>
             <div class="span2">
+                <div id="player_2_name" class="center-div"></div>
                 <input type="text" id="player_2_name_form" class="span2 img_form">
             </div>
             <div class="span2">
+                <div id="player_3_name" class="center-div"></div>
                 <input type="text" id="player_3_name_form" class="span2 img_form">
             </div>
             <div class="span2">
+                <div id="player_4_name" class="center-div"></div>
                 <input type="text" id="player_4_name_form" class="span2 img_form">
             </div>
             <div class="span2">
+                <div id="player_5_name" class="center-div"></div>
                 <input type="text" id="player_5_name_form" class="span2 img_form">
             </div>
             <div class="span2">
+                <div id="player_6_name" class="center-div"></div>
                 <input type="text" id="player_6_name_form" class="span2 img_form">
             </div>
         </div>
 
-        <div class="row show-grid table_cards" style="display: none">
-            <div class="span2  offset1">
-                <div id="table_card_1" class="center-div"></div>
+        <div class="row show-grid player_stats">
+            <div class="span2">
+                <div class="center-div">
+                <input type="text" id="player_stat_1_form_eval" class="span2 img_form stats-eval">
+                <input type="text" id="player_stat_1_form_now" class="span2 img_form stats-nows">
+                <input type="text" id="player_stat_1_form_win" class="span2 img_form  stats-wins">
+                <input type="text" id="player_stat_1_form_hands" class="span2 img_form stats-hands">
+                </div>
             </div>
             <div class="span2">
-                <div id="table_card_2" class="center-div"></div>
+                <div class="center-div">
+                <input type="text" id="player_stat_2_form_eval" class="span2 img_form stats-eval">
+                <input type="text" id="player_stat_2_form_now" class="span2 img_form stats-nows">
+                <input type="text" id="player_stat_2_form_win" class="span2 img_form  stats-wins">
+                <input type="text" id="player_stat_2_form_hands" class="span2 img_form stats-hands">
+                </div>
             </div>
             <div class="span2">
-                <div id="table_card_3" class="center-div"></div>
+                <div class="center-div">
+                <input type="text" id="player_stat_3_form_eval" class="span2 img_form stats-eval">
+                <input type="text" id="player_stat_3_form_now" class="span2 img_form stats-nows">
+                <input type="text" id="player_stat_3_form_win" class="span2 img_form  stats-wins">
+                <input type="text" id="player_stat_3_form_hands" class="span2 img_form stats-hands">
+                </div>
             </div>
             <div class="span2">
-                <div id="table_card_4" class="center-div"></div>
+                <div class="center-div">
+                <input type="text" id="player_stat_4_form_eval" class="span2 img_form stats-eval">
+                <input type="text" id="player_stat_4_form_now" class="span2 img_form stats-nows">
+                <input type="text" id="player_stat_4_form_win" class="span2 img_form  stats-wins">
+                <input type="text" id="player_stat_4_form_hands" class="span2 img_form stats-hands">
+                </div>
             </div>
             <div class="span2">
-                <div id="table_card_5" class="center-div"></div>
-            </div>
-        </div>
-
-        <div class="row show-grid table_cards" style="display: none">
-            <div class="span2  offset1">
-                <input type="text" id="table_card_1_form" class="span2 img_form">
-            </div>
-            <div class="span2">
-                <input type="text" id="table_card_2_form" class="span2 img_form">
+                <div class="center-div">
+                <input type="text" id="player_stat_5_form_eval" class="span2 img_form stats-eval">
+                <input type="text" id="player_stat_5_form_now" class="span2 img_form stats-nows">
+                <input type="text" id="player_stat_5_form_win" class="span2 img_form  stats-wins">
+                <input type="text" id="player_stat_5_form_hands" class="span2 img_form stats-hands">
+                </div>
             </div>
             <div class="span2">
-                <input type="text" id="table_card_3_form" class="span2 img_form">
-            </div>
-            <div class="span2">
-                <input type="text" id="table_card_4_form" class="span2 img_form">
-            </div>
-            <div class="span2">
-                <input type="text" id="table_card_5_form" class="span2 img_form">
+                <div class="center-div">
+                <input type="text" id="player_stat_6_form_eval" class="span2 img_form stats-eval">
+                <input type="text" id="player_stat_6_form_now" class="span2 img_form stats-nows">
+                <input type="text" id="player_stat_6_form_win" class="span2 img_form  stats-wins">
+                <input type="text" id="player_stat_6_form_hands" class="span2 img_form stats-hands">
+                </div>
             </div>
         </div>
 
         <hr />
 
         <footer>
-            <p>&copy; Poke App' 2013</p>
+            <p>&copy; Poker App' 2013</p>
         </footer>
+
     </div> <!-- /container -->
 
     <!-- Le javascript
@@ -298,7 +334,9 @@ body {
                     console.log(img_name + ": " + JSON.stringify(o.infos[img_name]));
 
                     $("#" + img_name + "_form").pokerInfo({
-                        info: o.infos[img_name]
+                        info: o.infos[img_name],
+                        evals: o.stats.evals,
+                        stats: o.stats.stats
                     });
                 }
             });
@@ -340,9 +378,28 @@ body {
         return this.each(function () {
 
             var self = $(this),
-                info = self.info?o.info:"";
+                is_player = self.attr("id").substr(0, 6)=="player",
+                is_player_name = self.attr("id").substr(9, 4)=="name",
+                player_num_ = is_player_name? self.attr("id").substr(7, 1):undefined,
+                in_eval = is_player_name?$("#player_stat_" + player_num_  + "_form_eval"):undefined,
+                in_now = is_player_name?$("#player_stat_" + player_num_  + "_form_now"):undefined,
+                in_win = is_player_name?$("#player_stat_" + player_num_  + "_form_win"):undefined,
+                in_hands = is_player_name?$("#player_stat_" + player_num_  + "_form_hands"):undefined;
+                eval = is_player_name&&o.evals&&o.info in o.evals?o.evals[o.info]:'',
+                stats = is_player_name&&o.stats&&o.info in o.stats?o.stats[o.info]:undefined,
+                now = stats?stats.now:'',
+                win = stats?stats.win:'',
+                hands = stats?stats.hands:'';
 
             self.val(o.info);
+
+            // manage stats
+            if (is_player_name) {
+                in_eval.val(eval);
+                in_now.val(now);
+                in_win.val(win);
+                in_hands.val(hands);
+            }
         });
     };
 
@@ -435,7 +492,7 @@ body {
                 target  = $("." + self.attr("id").replace("_show", ""));
 
             // hide all
-            target.hide();
+            // target.hide();
 
             self.click(function () {
     

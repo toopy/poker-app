@@ -233,20 +233,20 @@ class History(object):
                          else round(float(wins)*100/hands)
         # wins / preflop
         if not step or step == table.PREFLOP:
-            stats['preflop'] = 0 if not preflops\
-                                 else round(float(wins)*100/preflops)
+            stats['now'] = 0 if not preflops\
+                             else round(float(wins)*100/preflops)
             # stats['big'] = round(float(bigs)*100/flops)
         # wins / preflop
         if not step or step == table.FLOP:
-            stats['flop'] = 0 if not flops\
-                              else round(float(wins)*100/flops)
+            stats['now'] = 0 if not flops\
+                             else round(float(wins)*100/flops)
         # wins / turn
         if not step or step == table.TURN:
-            stats['turn'] = 0 if not turns\
-                              else round(float(wins)*100/turns)
+            stats['now'] = 0 if not turns\
+                             else round(float(wins)*100/turns)
         # wins / river
         if not step or step == table.RIVER:
-            stats['river'] = 0 if not rivers\
-                                else round(float(wins)*100/rivers)
+            stats['now'] = 0 if not rivers\
+                             else round(float(wins)*100/rivers)
         # let's rock
         return stats

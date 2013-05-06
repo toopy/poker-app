@@ -292,7 +292,7 @@ class PreviewTableFactory(SocketFactory):
         # eval
         try:
             _eval = pokereval.PokerEval().poker_eval(**kwargs)
-            return  zip([me] + others, [e['ev'] for e in _eval['eval']])
+            return  dict(zip([me] + others, [e['ev'] for e in _eval['eval']]))
         except Exception, e:
             logger.exception(e)
 
@@ -328,8 +328,7 @@ class PreviewTableFactory(SocketFactory):
         stats = {
             'hand': {'value': _hand, 'name': hand_cls.get_name(_hand)},
             'step': {'value': step, 'name': table_cls.get_name(step)},
-            'players': players,
-            'eval': _eval,
+            'evals': _eval,
             'stats': _stats,
         }
         return stats
