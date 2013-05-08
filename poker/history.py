@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import codecs
+import os
 import re
 import unicodedata
 
@@ -14,13 +15,17 @@ from sqlalchemy.schema import UniqueConstraint
 from poker import table
 
 
+import logging
+logger = logging.getLogger(__name__)
+
+
 Base = declarative.declarative_base()
 Session = sessionmaker()
 
 
 class Hand(Base):
 
-    __tablename__ = 'stories'
+    __tablename__ = 'hands'
     __table_args__ = (
         UniqueConstraint('main', 'player'),
     )
@@ -52,22 +57,26 @@ class Hand(Base):
 RE_MAIN   = re.compile(r'^Main PokerStars No (\d{11})$')
 
 # SIEGE/PLAYER
-R_SIEGE   = r"^Siege \d{1}: ([a-zA-Z0-9_\-:.]*)"
+R_SIEGE   = r"^Siege \d{1}: ([a-zA-Z0-9_\-:. ]*)"
 
 # INFOS
 R_INFO = [
     r"",
     r" \(bouton\)",
     r" \(petite blind\)",
+    r" \(bouton\) \(petite blind\)",
     r" \(grosse blind\)",
+    r" \(bouton\) \(grosse blind\)",
 ]
 
 [
     INFO_NONE,
     INFO_BUTTON,
     INFO_SMALL_BLIND,
+    INFO_BUTTON_SMALL_BLIND,
     INFO_BIG_BLIND,
-] = range(4)
+    INFO_BUTTON_BIG_BLIND,
+] = range(6)
 
 # WIN/LOOSE
 R_WIN = [
@@ -125,6 +134,9 @@ class History(object):
         step = None
         main = None
         lines = list()
+        if not os.path.exists(self.path):
+            logger.warn('path does not exist: %s' % self.path)
+            return []
         with codecs.open(self.path, 'r', encoding='utf-8') as f:
             for l in f.readlines():
                 l = unicodedata.normalize('NFD', l).encode('ascii', 'ignore')
@@ -186,8 +198,10 @@ class History(object):
     def update(self):
         # quit
         quit = False
-        for part in self.get_parts():
-            for h in self.parse_part(part):
+        parts = [p for p in self.get_parts()]
+        parts.sort(reverse=True)
+        for p in parts:
+            for h in self.parse_part(p):
                 # update quit flag
                 quit |= h is None
                 # quit cascade

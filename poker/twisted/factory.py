@@ -5,8 +5,11 @@ import os
 import logging
 logger = logging.getLogger(__name__)
 
+from datetime import datetime
 from functools import partial
 from itertools import combinations
+
+from pyscreenshot import grab
 
 from twisted.internet.task import LoopingCall
 
@@ -63,6 +66,8 @@ class PokerDico(Dictionary):
         # keep the new str value
         if not value in self.pokervalues:
             self.pokervalues.append(value)
+        # debug
+        logger.debug('v:%s' % self.pokervalues)
         # call parent with index as value
         Dictionary.update(self, box, self.pokervalues.index(value))
 
@@ -85,12 +90,13 @@ class Pokerbot(Robot):
         return val
 
     def find_contours(self):
+        print self._zones
         for k, v in self._zones.iteritems():
             x, y, w, h = [abs(int(v[i])) for i in ['x', 'y', 'w', 'h']]
-            yield (1920-x, y, w, h)
+            yield (760-x, 418-y, w, h)
 
     def get_box(self, pos, size):
-        p = P(1920 - pos.x, abs(pos.y))
+        p = P(760-pos.x, 418-pos.y)
         return self.threshold[p.y:p.y+size.h, p.x:p.x+size.w]
 
     def need_study(self, *args):
@@ -121,7 +127,7 @@ class Zone(object):
         return '(%s,%s) (%s,%s)' % (self.x, self.y, self.w, self.h)
 
 
-ROOT = os.path.join('poker', 'static', 'poker', 'resources', 'img', 'table')
+# ROOT = os.path.join('poker', 'static', 'poker', 'resources', 'img', 'table')
 STATIC = os.path.join('/fanstatic', 'poker', 'img', 'table')
 
 IMG_LIST = [
@@ -175,12 +181,17 @@ class PreviewTableFactory(SocketFactory):
 
     def __init__(self, *args, **kwargs):
         SocketFactory.__init__(self, *args, **kwargs)
-        self.__config = Config()
+        self.__config = None
         self.__dico = PokerDico()
+        self.table_path = None
         self.history = None
         self.robot = None
 
     def start(self):
+        # init robot config
+        self.__config = Config(max_dist=self.get_config('robot.max_dist'))
+        # init table path
+        self.table_path = self.get_config('poker.table')
         # init history with config
         self.history = history.History(
             conn=self.get_config('poker.conn'),
@@ -195,9 +206,21 @@ class PreviewTableFactory(SocketFactory):
         try:
             LoopingCall(self.refresh).start(float(delay))
         except ValueError, e:
+            logger.exception(e)
             pass
 
+    def grab_table(self):
+        img_name = '%s_table.jpg' % datetime.now().strftime('%Y%m%d_%H%M%S')
+        img_path = os.path.join(self.table_path, img_name)
+        # debug
+        logger.debug('p:%s' % img_path)
+        # let's grab
+        im = grab(bbox=[int(v) for v in self.get_config('poker.table_box').split(' ')])
+        im.save(img_path, format="jpeg")
+
     def refresh(self):
+        # grab new table
+        self.grab_table()
         # update history
         self.history.update()
         # update clients
@@ -213,7 +236,7 @@ class PreviewTableFactory(SocketFactory):
 
     def next_path(self, current=None, root=None, ask='next'):
         # list available files
-        files = os.listdir(ROOT)
+        files = os.listdir(self.table_path)
         files.sort(reverse=True)
         # split current
         current = self.current_path(current)
@@ -224,7 +247,7 @@ class PreviewTableFactory(SocketFactory):
         elif ask == 'next':
             index = 0 if index == len(files) - 1 else index + 1
         # add static path
-        roots = [os.path.join(ROOT, f) for f in files]
+        roots = [os.path.join(self.table_path, f) for f in files]
         statics = [os.path.join(STATIC, f) for f in files]
         return roots[index], statics[index]
 
@@ -252,11 +275,12 @@ class PreviewTableFactory(SocketFactory):
             return ''
         # get key zone
         zone = Zone(**self.robot._zones[key])
+        print 'k:%s' % key
         # get value
         return self.robot.get_value(zone.get_pos(), zone.get_size())
 
     def get_infos(self):
-        return dict([(k, self.info_(k)) for k in IMG_LIST])
+        return dict([(k, self.info_(k)) for k in IMG_LIST[1:]])
 
     def ev_cards(self, cards):
         for i, c in enumerate(cards):
@@ -298,8 +322,8 @@ class PreviewTableFactory(SocketFactory):
 
     def get_stats(self, infos):
         # no cards .. do nothin
-        if not [k for k in CARD_KEYS[:2] if infos[k] not in NULL]:
-            return {}
+        # if not [k for k in CARD_KEYS[:2] if infos[k] not in NULL]:
+        #     return {}
         # compute best hand
         cards = [infos[k] for k in CARD_KEYS\
                                if infos[k] not in NULL]
@@ -319,9 +343,14 @@ class PreviewTableFactory(SocketFactory):
         oth = [infos[k.replace('cards', 'name')]
                      for k in CARD_OTHERS if infos[k] not in NULL]
         # players
-        players = [me] + filter(None, oth)
+        players = [me]
+        players += filter(None, [infos[k.replace('cards', 'name')]
+                                 for k in CARD_OTHERS])
         # eval
-        _eval = self.get_eval(cards, me, oth)
+        if not [k for k in CARD_KEYS[:2] if infos[k] not in NULL]:
+            _eval = {}
+        else:
+            _eval = self.get_eval(cards, me, oth)
         # stats
         _stats = dict([(p, self.history.get_stats(p, step)) for p in players])
         # res

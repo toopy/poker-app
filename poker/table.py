@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 ] = range(5)
 
 NAMES = [
-    'null',
+    '',
     'preflop',
     'flop',
     'turn',

@@ -70,7 +70,6 @@ input[type=text] {
 .player_stats input.stats-eval {
     color: green;
     width: 24px;
-    
 }
 
 .player_stats input.stats-nows {
@@ -83,6 +82,7 @@ input[type=text] {
 
 .player_stats input.stats-hands {
     color: grey;
+    width: 24px;
 }
 
     </style>
@@ -220,6 +220,15 @@ input[type=text] {
             </div>
         </div>
 
+        <div class="row show-grid tale_infos">
+            <div class="span2 offset4">
+                <input type="text" id="info_step" class="span2 img_form">
+            </div>
+            <div class="span2">
+                <input type="text" id="info_hand" class="span2 img_form">
+            </div>
+        </div>
+
         <div class="row show-grid player_stats">
             <div class="span2">
                 <div class="center-div">
@@ -338,6 +347,10 @@ input[type=text] {
                         evals: o.stats.evals,
                         stats: o.stats.stats
                     });
+
+                    $("#info_step").val(o.stats.step.name);
+                    $("#info_hand").val(o.stats.hand.name);
+
                 }
             });
         }

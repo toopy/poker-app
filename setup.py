@@ -17,6 +17,10 @@ setup(
     zip_safe=False,
     install_requires=[
         "fanstatic",
+        "pillow",
+        "pycv-toolbox",
+        "pyscreenshot",
+        "sqlalchemy",
         "west-socket",
     ],
     namespace_packages=[

@@ -285,6 +285,8 @@ class HandPreflop(HandBase):
         return _9__2
 
     def get_rank(self):
+        if not self.cards:
+            return ZERO
         return self.is_aks()\
          or self.is_aa()\
          or self.is_kqs_qjs_jts()\
@@ -323,7 +325,7 @@ class HandPreflop(HandBase):
 ] = range(11)
 
 NAMES = [
-    'zero',
+    '',
     'high card',
     'one pair',
     'two pairs',
@@ -468,6 +470,8 @@ class Hand(HandBase):
         return HIGH_CARD
 
     def get_rank(self):
+        if not self.cards:
+            return ZERO
         return self.is_royal_flush()\
             or self.is_straight_flush()\
             or self.is_four_of_a_kind()\
